@@ -161,9 +161,10 @@
     }
 
     .header-right {
-      display: flex;
+      display: grid;
       align-items: center;
-      gap: 20px;
+      gap: 10px;
+      margin-right: 20px;
     }
 
     .balance-display {
@@ -450,26 +451,47 @@
     }
 
     /* Referral Modal */
-    .referral-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-    }
+   .referral-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
 
-    .referral-modal-content {
-      background: var(--card-bg);
-      width: 90%;
-      max-width: 500px;
-      border-radius: 15px;
-      overflow: hidden;
-    }
+.referral-modal-content {
+  background: var(--card-bg);
+  width: 95%;
+  max-width: 400px;
+  border-radius: 10px;
+  overflow: hidden;
+  max-height: 80vh;
+  overflow-y: auto;
+  transform: scale(0.95); /* Modal size control */
+  transition: transform 0.3s ease;
+}
+/* Mobile specific modal fix */
+@media (max-width: 480px) {
+  .referral-modal {
+    padding: 10px;
+    align-items: flex-start;
+    padding-top: 30px;
+  }
+  
+  .referral-modal-content {
+    width: 100%;
+    max-width: 100%;
+    max-height: 85vh;
+    border-radius: 8px;
+    transform: none;
+  }
+}
 
     /* Profile Update Modal */
     .profile-modal {
@@ -707,41 +729,64 @@
       color: white;
     }
 
-    /* Chat System */
-    .chat-container {
-      background: var(--card-bg);
-      border-radius: 15px;
-      overflow: hidden;
-      height: 500px;
-      display: flex;
-      flex-direction: column;
-    }
+   /* Chat System Fixed */
+.chat-container {
+  background: var(--card-bg);
+  border-radius: 15px;
+  overflow: hidden;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
 
-    .chat-messages {
-      flex: 1;
-      padding: 20px;
-      overflow-y: auto;
-    }
+.chat-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
 
-    .chat-message {
-      margin-bottom: 15px;
-      max-width: 80%;
-    }
+.chat-message {
+  margin-bottom: 15px;
+  max-width: 80%;
+}
 
-    .chat-message.sent {
-      margin-left: auto;
-    }
+.chat-message.sent {
+  margin-left: auto;
+}
 
-    .message-content {
-      padding: 10px 15px;
-      border-radius: 15px;
-      background: var(--hover-bg);
-    }
+/* OTHER PERSON'S MESSAGE (BLUE) */
+.message-content {
+  padding: 10px 15px;
+  border-radius: 18px 18px 18px 5px;
+  background: #3EA6FF; /* YouTube-like blue */
+  color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
-    .chat-message.sent .message-content {
-      background: var(--primary);
-    }
+/* MY MESSAGE (RED) */
+.chat-message.sent .message-content {
+  background: var(--primary); /* FF0000 red */
+  color: white;
+  border-radius: 18px 18px 5px 18px;
+  box-shadow: 0 2px 5px rgba(255,0,0,0.2);
+}
 
+/* Mobile fix */
+@media (max-width: 768px) {
+  .chat-container {
+    height: 400px;
+    border-radius: 10px;
+  }
+  
+  .chat-messages {
+    padding: 15px;
+  }
+  
+  .message-content {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
     /* Coming Soon */
     .coming-soon {
       text-align: center;
@@ -882,7 +927,7 @@
     <div class="auth-box">
       <div class="logo-header" style="justify-content: center; margin-bottom: 30px;">
         <i class="fas fa-play-circle"></i>
-        EarnTube  💰 
+        EarnTube 
       </div>
 
       <div class="auth-tabs">
@@ -933,7 +978,7 @@
         </button>
         <div class="logo-header">
           <i class="fas fa-play-circle"></i>
-          EarnTube  💰 
+          EarnTube
         </div>
       </div>
 
