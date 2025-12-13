@@ -1635,7 +1635,7 @@
         document.getElementById('referralCodeDisplay').value = userData.referralCode || '';
 
         // Set referral link
-        const referralLink = `${window.location.origin}?ref=${userData.referralCode}`;
+        const referralLink = `https://alidevtech-code.github.io/EarnTube/?ref=${userData.referralCode}`;
         document.getElementById('referralLink').value = referralLink;
 
         // Count successful referrals
@@ -2158,7 +2158,7 @@ async function loadComments(postId) {
     showNotification(`Post shared! ${post.channelName} earned 0.001 coins!`, 'success');
 
     // Copy share link
-    const shareLink = `${window.location.origin}?ref=${currentUser.uid.substring(0, 8)}`;
+    const shareLink = `https://alidevtech-code.github.io/EarnTube/?ref=${currentUser.uid.substring(0, 8)}`;
     navigator.clipboard.writeText(shareLink)
       .then(() => showNotification('Share link copied to clipboard!', 'info'))
       .catch(() => console.log('Clipboard copy failed'));
@@ -2660,7 +2660,7 @@ async function requestWithdrawal() {
         document.getElementById('referralCodeDisplay').value = userData.referralCode || '';
 
         // Set referral link
-        const referralLink = `${window.location.origin}?ref=${userData.referralCode}`;
+       const referralLink = `https://alidevtech-code.github.io/EarnTube/?ref=${userData.referralCode}`;
         document.getElementById('referralLink').value = referralLink;
 
         // Count successful referrals
