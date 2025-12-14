@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> 💰  EarnTube - Earn Money Platform</title>
+  <title> 💰 EarnTube - Earn Money Platform</title>
   <style>
     :root {
       --primary: #FF0000;
@@ -218,6 +218,26 @@
       font-weight: bold;
     }
 
+    /* Scrollbar styling */
+    .sidebar::-webkit-scrollbar {
+      width: 4px;
+      /* Thin scrollbar */
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+     background: #f36100;
+      /* Dark grey scroll handle */
+      border-radius: 10px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb:hover {
+      background: #888;
+    }
+
     .sidebar-item i {
       font-size: 20px;
       width: 24px;
@@ -273,12 +293,13 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      background: linear-gradient(45deg, #2b1c1c, #11d3e7);
     }
 
     .no-thumbnail {
       width: 100%;
       height: 100%;
-      background: linear-gradient(45deg, var(--primary), var(--accent));
+      background: linear-gradient(45deg, #2b1c1c, #11d3e7);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -308,15 +329,54 @@
       color: var(--light);
     }
 
+    /* Text expansion styles */
+    /* Post text with scroll */
     .video-title {
-      font-size: 16px;
-      font-weight: bold;
-      margin-bottom: 8px;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      font-size: 15px;
+      font-weight: normal;
+      margin-bottom: 24px;
+      margin-top: -50px;
+      line-height: 1.5;
+      max-height: 100px;
+      /* Fixed height */
+      overflow-y: auto;
+      /* Vertical scroll */
+      padding: 5px 5px;
+      color: #e0e0e0;
+      text-align: center;
+      white-space: pre-wrap;
+      /* Preserve line breaks */
+      word-wrap: break-word;
     }
+
+    /* Scrollbar styling */
+    .video-title::-webkit-scrollbar {
+      width: 4px;
+      /* Thin scrollbar */
+    }
+
+    .video-title::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .video-title::-webkit-scrollbar-thumb {
+       background: #f36100;
+      /* Dark grey scroll handle */
+      border-radius: 10px;
+    }
+
+    .video-title::-webkit-scrollbar-thumb:hover {
+      background: #888;
+    }
+
+    /* Mobile mein height kam karo */
+    @media (max-width: 768px) {
+      .video-title {
+        max-height: 92px;
+        font-size: 14px;
+      }
+    }
+
 
     .video-meta {
       display: flex;
@@ -330,7 +390,7 @@
     .post-actions {
       display: flex;
       justify-content: space-around;
-      padding: 15px;
+
       border-top: 1px solid #303030;
     }
 
@@ -419,7 +479,33 @@
       max-height: 80vh;
       overflow-y: auto;
     }
+ /* Scrollbar styling */
+   .withdraw-modal-content::-webkit-scrollbar {
+      width: 4px;
+      /* Thin scrollbar */
+    }
 
+    .withdraw-modal-content::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .withdraw-modal-content::-webkit-scrollbar-thumb {
+        background: #f36100;
+      /* Dark grey scroll handle */
+      border-radius: 10px;
+    }
+
+   .withdraw-modal-content::-webkit-scrollbar-thumb:hover {
+      background: #888;
+    }
+
+    /* Mobile mein height kam karo */
+    @media (max-width: 768px) {
+      .video-title {
+        max-height: 92px;
+        font-size: 14px;
+      }
+    }
     .withdraw-tabs {
       display: flex;
       border-bottom: 1px solid #303030;
@@ -451,47 +537,68 @@
     }
 
     /* Referral Modal */
-   .referral-modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  z-index: 1000;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-}
+    .referral-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
 
-.referral-modal-content {
-  background: var(--card-bg);
-  width: 95%;
-  max-width: 400px;
-  border-radius: 10px;
-  overflow: hidden;
-  max-height: 80vh;
-  overflow-y: auto;
-  transform: scale(0.95); /* Modal size control */
-  transition: transform 0.3s ease;
-}
-/* Mobile specific modal fix */
-@media (max-width: 480px) {
-  .referral-modal {
-    padding: 10px;
-    align-items: flex-start;
-    padding-top: 30px;
-  }
-  
-  .referral-modal-content {
-    width: 100%;
-    max-width: 100%;
-    max-height: 85vh;
-    border-radius: 8px;
-    transform: none;
-  }
-}
+    .referral-modal-content {
+      background: var(--card-bg);
+      width: 95%;
+      max-width: 400px;
+      border-radius: 10px;
+      overflow: hidden;
+      max-height: 80vh;
+      overflow-y: auto;
+      transform: scale(0.95);
+      /* Modal size control */
+      transition: transform 0.3s ease;
+    }
+     /* Scrollbar styling */
+  .referral-modal-content::-webkit-scrollbar {
+      width: 4px;
+      /* Thin scrollbar */
+    }
+
+    .referral-modal-content::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+ .referral-modal-content::-webkit-scrollbar-thumb {
+     background: #f36100;
+      /* Dark grey scroll handle */
+      border-radius: 10px;
+    }
+
+   .referral-modal-content::-webkit-scrollbar-thumb:hover {
+      background: #888;
+    }
+
+    /* Mobile specific modal fix */
+    @media (max-width: 480px) {
+      .referral-modal {
+        padding: 10px;
+        align-items: flex-start;
+        padding-top: 30px;
+      }
+
+      .referral-modal-content {
+        width: 100%;
+        max-width: 100%;
+        max-height: 85vh;
+        border-radius: 8px;
+        transform: none;
+      }
+    }
 
     /* Profile Update Modal */
     .profile-modal {
@@ -628,7 +735,33 @@
         padding-bottom: 80px;
       }
     }
+ /* Scrollbar styling */
+   .content-area::-webkit-scrollbar {
+      width: 4px;
+      /* Thin scrollbar */
+    }
 
+    .content-area::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .content-area::-webkit-scrollbar-thumb {
+      background: #f36100;
+      /* Dark grey scroll handle */
+      border-radius: 10px;
+    }
+
+  .content-area::-webkit-scrollbar-thumb:hover {
+      background: #888;
+    }
+
+    /* Mobile mein height kam karo */
+    @media (max-width: 768px) {
+      .video-title {
+        max-height: 92px;
+        font-size: 14px;
+      }
+    }
     /* Profile Page */
     .profile-header {
       background: var(--card-bg);
@@ -729,64 +862,93 @@
       color: white;
     }
 
-   /* Chat System Fixed */
-.chat-container {
-  background: var(--card-bg);
-  border-radius: 15px;
-  overflow: hidden;
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-}
+    /* Chat System Fixed */
+    .chat-container {
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+    }
 
-.chat-messages {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto;
-}
+    .chat-messages {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+/* Scrollbar styling */
+   .chat-messages::-webkit-scrollbar {
+      width: 4px;
+      /* Thin scrollbar */
+    }
 
-.chat-message {
-  margin-bottom: 15px;
-  max-width: 80%;
-}
+    .chat-messages::-webkit-scrollbar-track {
+      background: transparent;
+    }
 
-.chat-message.sent {
-  margin-left: auto;
-}
+    .chat-messages::-webkit-scrollbar-thumb {
+       background: #f36100;
+      /* Dark grey scroll handle */
+      border-radius: 10px;
+    }
 
-/* OTHER PERSON'S MESSAGE (BLUE) */
-.message-content {
-  padding: 10px 15px;
-  border-radius: 18px 18px 18px 5px;
-  background: #3EA6FF; /* YouTube-like blue */
-  color: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+   .chat-messages::-webkit-scrollbar-thumb:hover {
+      background: #888;
+    }
 
-/* MY MESSAGE (RED) */
-.chat-message.sent .message-content {
-  background: var(--primary); /* FF0000 red */
-  color: white;
-  border-radius: 18px 18px 5px 18px;
-  box-shadow: 0 2px 5px rgba(255,0,0,0.2);
-}
+    /* Mobile mein height kam karo */
+    @media (max-width: 768px) {
+      .video-title {
+        max-height: 92px;
+        font-size: 14px;
+      }
+    }
+    .chat-message {
+      margin-bottom: 15px;
+      max-width: 80%;
+    }
 
-/* Mobile fix */
-@media (max-width: 768px) {
-  .chat-container {
-    height: 400px;
-    border-radius: 10px;
-  }
-  
-  .chat-messages {
-    padding: 15px;
-  }
-  
-  .message-content {
-    padding: 8px 12px;
-    font-size: 14px;
-  }
-}
+    .chat-message.sent {
+      margin-left: auto;
+    }
+
+    /* OTHER PERSON'S MESSAGE (BLUE) */
+    .message-content {
+      padding: 10px 15px;
+      border-radius: 18px 18px 18px 5px;
+      background: #3EA6FF;
+      /* YouTube-like blue */
+      color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* MY MESSAGE (RED) */
+    .chat-message.sent .message-content {
+      background: var(--primary);
+      /* FF0000 red */
+      color: white;
+      border-radius: 18px 18px 5px 18px;
+      box-shadow: 0 2px 5px rgba(255, 0, 0, 0.2);
+    }
+
+    /* Mobile fix */
+    @media (max-width: 768px) {
+      .chat-container {
+        height: 400px;
+        border-radius: 10px;
+      }
+
+      .chat-messages {
+        padding: 15px;
+      }
+
+      .message-content {
+        padding: 8px 12px;
+        font-size: 14px;
+      }
+    }
+
     /* Coming Soon */
     .coming-soon {
       text-align: center;
@@ -912,6 +1074,51 @@
       max-height: 100%;
       object-fit: contain;
     }
+
+    /* Follow Button Styling */
+    /* Follow Button Styling */
+    .follow-btn {
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      border: none;
+      color: var(--gray);
+      cursor: pointer;
+      padding: 5px 15px;
+      border-radius: 20px;
+      border: 1px solid var(--gray);
+      transition: all 0.3s;
+    }
+
+    /* FOLLOWED HO JAYE TOH - Same as before */
+    .follow-btn.following {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* BEFORE FOLLOW (Gradient) */
+    .follow-btn {
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      color: white;
+      border: 1px solid var(--primary);
+    }
+
+    /* AFTER FOLLOW (Solid red) */
+    .follow-btn.following {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* Icon change after follow */
+    .follow-btn i::before {
+      content: "\f234";
+      /* fa-user-plus */
+    }
+
+    .follow-btn.following i::before {
+      content: "\f00c";
+      /* fa-check */
+    }
   </style>
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
@@ -927,7 +1134,7 @@
     <div class="auth-box">
       <div class="logo-header" style="justify-content: center; margin-bottom: 30px;">
         <i class="fas fa-play-circle"></i>
-        EarnTube 
+        EarnTube
       </div>
 
       <div class="auth-tabs">
@@ -1011,14 +1218,8 @@
             <i class="fas fa-home"></i>
             <span>Home</span>
           </div>
-          <div class="sidebar-item" onclick="switchTab('explore')">
-            <i class="fas fa-compass"></i>
-            <span>Explore</span>
-          </div>
-          <div class="sidebar-item" onclick="switchTab('trending')">
-            <i class="fas fa-fire"></i>
-            <span>Trending</span>
-          </div>
+          
+          
         </div>
 
         <div class="sidebar-section">
@@ -1060,26 +1261,8 @@
           </div>
         </div>
 
-        <!-- Explore Tab -->
-        <div id="exploreTab" class="tab-content" style="display: none;">
-          <div class="content-header">
-            <h1>Explore Content</h1>
-          </div>
-          <div class="posts-grid" id="exploreGrid">
-            <!-- Explore content will load here -->
-          </div>
-        </div>
-
-        <!-- Trending Tab -->
-        <div id="trendingTab" class="tab-content" style="display: none;">
-          <div class="content-header">
-            <h1>Trending Now</h1>
-          </div>
-          <div class="posts-grid" id="trendingGrid">
-            <!-- Trending content will load here -->
-          </div>
-        </div>
-
+        
+      
         <!-- Profile Tab -->
         <div id="profileTab" class="tab-content" style="display: none;">
           <div class="profile-header">
@@ -1099,6 +1282,14 @@
                 <div style="text-align: center;">
                   <h3 id="likeCount">0</h3>
                   <p style="color: var(--gray);">Likes</p>
+                </div>
+                <div style="margin: 15px 0;">
+                  <button class="btn btn-primary" onclick="followUser('${currentUser.uid}')" id="profileFollowBtn">
+                    <i class="fas fa-user-plus"></i> Follow
+                  </button>
+                  <span style="margin-left: 15px; color: var(--gray);">
+                    <i class="fas fa-users"></i> <span id="followerCount">0</span> followers
+                  </span>
                 </div>
                 <div style="text-align: center;">
                   <h3 id="coinCount">0</h3>
@@ -1146,10 +1337,8 @@
           <i class="fas fa-home"></i>
           <span>Home</span>
         </button>
-        <button class="footer-tab" onclick="switchTab('explore')">
-          <i class="fas fa-compass"></i>
-          <span>Explore</span>
-        </button>
+        
+
         <button class="footer-tab" onclick="openCreatePost()">
           <i class="fas fa-plus-circle"></i>
           <span>Create</span>
@@ -1183,11 +1372,8 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label">Image URL (Optional)</label>
-          <input type="text" id="imageUrl" class="form-input" placeholder="Paste image URL here">
-          <div class="image-preview" id="imagePreview">
-            <p style="color: var(--gray);">Image preview will appear here</p>
-          </div>
+       
+
         </div>
 
         <button onclick="createPost()" class="btn btn-primary btn-block">
@@ -1625,50 +1811,288 @@
     });
 
     // Load User Data
-    async function loadUserData() {
-      try {
-        const userDoc = await db.collection('users').doc(currentUser.uid).get();
-        if (userDoc.exists) {
-          const userData = userDoc.data();
+   async function loadUserData() {
+  try {
+    const userDoc = await db.collection('users').doc(currentUser.uid).get();
+    if (userDoc.exists) {
+      const userData = userDoc.data();
 
-          // Update UI
-          document.getElementById('channelName').textContent = userData.channelName || 'Channel Name';
-          document.getElementById('profileEmail').textContent = userData.email;
-          document.getElementById('balance').textContent = (userData.
-            balance || 0).toFixed(4);
-          document.getElementById('coinCount').textContent = (userData.balance || 0).toFixed(4);
+      // Update UI
+      document.getElementById('channelName').textContent = userData.channelName || 'Channel Name';
+      document.getElementById('profileEmail').textContent = userData.email;
+      document.getElementById('balance').textContent = (userData.balance || 0).toFixed(4);
+      document.getElementById('coinCount').textContent = (userData.balance || 0).toFixed(4);
 
-          // Set profile image
-          const profileAvatar = document.getElementById('profileAvatar');
-          const editProfileAvatar = document.getElementById('editProfileAvatar');
-          if (userData.profileImage) {
-            profileAvatar.src = userData.profileImage;
-            editProfileAvatar.src = userData.profileImage;
-          }
+      // ✅ FOLLOWERS COUNT LOAD KARO
+      const followersSnapshot = await db.collection('followers')
+        .where('followingId', '==', currentUser.uid)
+        .get();
+      
+      document.getElementById('followerCount').textContent = followersSnapshot.size;
 
-          // Set channel name in edit form
-          document.getElementById('editChannelName').value = userData.channelName || '';
-          document.getElementById('editBio').value = userData.bio || '';
+      // Set profile image
+      const profileAvatar = document.getElementById('profileAvatar');
+      const editProfileAvatar = document.getElementById('editProfileAvatar');
+      if (userData.profileImage) {
+        profileAvatar.src = userData.profileImage;
+        editProfileAvatar.src = userData.profileImage;
+      }
 
-          // Load user stats
-          const postsSnapshot = await db.collection('posts')
-            .where('userId', '==', currentUser.uid)
-            .get();
-          document.getElementById('postCount').textContent = postsSnapshot.size;
+      // Set channel name in edit form
+      document.getElementById('editChannelName').value = userData.channelName || '';
+      document.getElementById('editBio').value = userData.bio || '';
 
-          let totalLikes = 0;
-          postsSnapshot.forEach(doc => {
-            totalLikes += doc.data().likes || 0;
-          });
-          document.getElementById('likeCount').textContent = totalLikes;
+      // Load user stats
+      const postsSnapshot = await db.collection('posts')
+        .where('userId', '==', currentUser.uid)
+        .get();
+      document.getElementById('postCount').textContent = postsSnapshot.size;
 
-          // Load referral stats
-          await loadReferralStats();
-        }
-      } catch (error) {
-        console.error('Error loading user data:', error);
+      let totalLikes = 0;
+      postsSnapshot.forEach(doc => {
+        totalLikes += doc.data().likes || 0;
+      });
+      document.getElementById('likeCount').textContent = totalLikes;
+
+      // Load referral stats
+      await loadReferralStats();
+    }
+  } catch (error) {
+    console.error('Error loading user data:', error);
+  }
+}
+    // =============== FOLLOW SYSTEM ===============
+// Real-time follow listener
+function setupFollowListener() {
+  return db.collection('followers')
+    .where('followingId', '==', currentUser.uid)
+    .onSnapshot((snapshot) => {
+      const followerCountElement = document.getElementById('followerCount');
+      if (followerCountElement) {
+        followerCountElement.textContent = snapshot.size;
+      }
+    });
+}
+
+// Aur auth state listener mein add karo:
+auth.onAuthStateChanged(async (user) => {
+  if (user) {
+    currentUser = user;
+    document.getElementById('appContainer').style.display = 'flex';
+    hideAuthModal();
+
+    await loadUserData();
+    switchTab('home');
+    setupChatListener();
+    setupPostsListener();
+    setupReferralListener();
+    
+    // ✅ YEH LINE ADD KARO
+    setupFollowListener();
+  } else {
+    document.getElementById('appContainer').style.display = 'none';
+    document.getElementById('authModal').style.display = 'flex';
+    if (chatListener) chatListener();
+    if (window.postsListener) window.postsListener();
+  }
+});
+    // Follow a user
+   async function followUser(targetUserId) {
+  if (!currentUser || !currentUser.uid) {
+    showNotification('Please login to follow users', 'error');
+    return;
+  }
+
+  if (targetUserId === currentUser.uid) {
+    showNotification('You cannot follow yourself', 'info');
+    return;
+  }
+
+  try {
+    const currentUserId = currentUser.uid;
+    
+    // Check if already following
+    const followCheck = await db.collection('followers')
+      .where('followerId', '==', currentUserId)
+      .where('followingId', '==', targetUserId)
+      .get();
+
+    if (!followCheck.empty) {
+      showNotification('You are already following this user', 'info');
+      return;
+    }
+
+    // Create follow relationship
+    await db.collection('followers').add({
+      followerId: currentUserId,
+      followingId: targetUserId,
+      followerName: currentUser.email,
+      followedAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    // Add to following collection
+    await db.collection('following').add({
+      userId: currentUserId,
+      followingId: targetUserId,
+      followedAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    // Give 5 PKR coins to user who got followed
+    const coinsToAdd = 2.5; // 5 PKR = 2.5 coins
+    await db.collection('users').doc(targetUserId).update({
+      balance: firebase.firestore.FieldValue.increment(coinsToAdd),
+      followersCount: firebase.firestore.FieldValue.increment(1), // ✅ YEH LINE IMPORTANT
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    // Record earning
+    await db.collection('follow_earnings').add({
+      userId: targetUserId,
+      followerId: currentUserId,
+      coinsEarned: coinsToAdd,
+      pkrAmount: 5,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    // Update UI
+    updateFollowButton(targetUserId, true);
+    
+    // ✅ YEH LINES ADD KARO - Real-time follow count update
+    if (targetUserId === currentUser.uid) {
+      // Agar apne profile par ho toh count update karo
+      const followerCountElement = document.getElementById('followerCount');
+      if (followerCountElement) {
+        const currentCount = parseInt(followerCountElement.textContent) || 0;
+        followerCountElement.textContent = currentCount + 1;
       }
     }
+    
+    showNotification(`Followed successfully! User earned 5 PKR (2.5 coins)`, 'success');
+
+  } catch (error) {
+    console.error('Follow error:', error);
+    showNotification('Error following user: ' + error.message, 'error');
+  }
+}
+
+    // Update follow button state
+    function updateFollowButton(targetUserId, isFollowing) {
+      const followBtn = document.getElementById(`followBtn${targetUserId}`);
+      const profileFollowBtn = document.getElementById('profileFollowBtn');
+
+      if (followBtn) {
+        if (isFollowing) {
+          followBtn.classList.add('following');
+          followBtn.innerHTML = '<i class="fas fa-check"></i> Following';
+        } else {
+          followBtn.classList.remove('following');
+          followBtn.innerHTML = '<i class="fas fa-user-plus"></i> Follow';
+        }
+      }
+
+      if (profileFollowBtn && targetUserId === currentUser.uid) {
+        if (isFollowing) {
+          profileFollowBtn.innerHTML = '<i class="fas fa-check"></i> Following';
+          profileFollowBtn.disabled = true;
+        }
+      }
+    }
+
+    // Check if following a user
+    async function checkIfFollowing(targetUserId) {
+      if (!currentUser || !currentUser.uid) return false;
+
+      try {
+        const followCheck = await db.collection('followers')
+          .where('followerId', '==', currentUser.uid)
+          .where('followingId', '==', targetUserId)
+          .get();
+
+        return !followCheck.empty;
+      } catch (error) {
+        return false;
+      }
+    }
+
+    // Load user's follower count
+    async function loadFollowerCount(userId) {
+      try {
+        const followersSnapshot = await db.collection('followers')
+          .where('followingId', '==', userId)
+          .get();
+
+        const followerCountElement = document.getElementById('followerCount');
+        if (followerCountElement) {
+          followerCountElement.textContent = followersSnapshot.size;
+        }
+
+        return followersSnapshot.size;
+      } catch (error) {
+        return 0;
+      }
+    }
+
+    // Load user's following count
+    async function loadFollowingCount(userId) {
+      try {
+        const followingSnapshot = await db.collection('following')
+          .where('userId', '==', userId)
+          .get();
+
+        return followingSnapshot.size;
+      } catch (error) {
+        return 0;
+      }
+    }
+
+    // Update post cards with follow buttons
+    async function updatePostFollowButtons() {
+      try {
+        const posts = document.querySelectorAll('.video-card');
+        posts.forEach(async (post) => {
+          // Extract userId from post data or button
+          const followBtn = post.querySelector('.follow-btn');
+          if (followBtn) {
+            const targetUserId = followBtn.getAttribute('onclick').match(/'([^']+)'/)[1];
+            const isFollowing = await checkIfFollowing(targetUserId);
+            updateFollowButton(targetUserId, isFollowing);
+          }
+        });
+      } catch (error) {
+        console.error('Error updating follow buttons:', error);
+      }
+    }
+
+    // Load user profile stats
+    async function loadUserProfileStats() {
+      if (!currentUser || !currentUser.uid) return;
+
+      try {
+        // Load follower count
+        const followerCount = await loadFollowerCount(currentUser.uid);
+
+        // Load following count
+        const followingCount = await loadFollowingCount(currentUser.uid);
+
+        // Update UI
+        document.getElementById('followerCount').textContent = followerCount;
+
+        // Add following count display if needed
+        const statsSection = document.querySelector('.profile-header');
+        if (statsSection && !document.getElementById('followingCount')) {
+          statsSection.innerHTML += `
+        <div style="text-align: center;">
+          <h3>${followingCount}</h3>
+          <p style="color: var(--gray);">Following</p>
+        </div>
+      `;
+        }
+      } catch (error) {
+        console.error('Error loading profile stats:', error);
+      }
+    }
+
+    // Add follow button to each post in loadPosts function
 
     // Load Referral Stats
     async function loadReferralStats() {
@@ -1787,8 +2211,8 @@
 
       // Load tab content
       if (tabName === 'home') loadPosts();
-      if (tabName === 'explore') loadExplore();
-      if (tabName === 'trending') loadTrending();
+      
+     
       if (tabName === 'profile') loadUserPosts();
       if (tabName === 'chat') loadMessages();
     }
@@ -1796,40 +2220,20 @@
     // Create Post Functions
     function openCreatePost() {
       document.getElementById('createPostModal').style.display = 'flex';
-      document.getElementById('imageUrl').addEventListener('input', previewImage);
+     
     }
 
     function closeCreatePost() {
       document.getElementById('createPostModal').style.display = 'none';
       document.getElementById('postText').value = '';
-      document.getElementById('imageUrl').value = '';
-      document.getElementById('imagePreview').innerHTML =
-        '<p style="color: var(--gray);">Image preview will appear here</p>';
-    }
-
-    function previewImage() {
-      const url = document.getElementById('imageUrl').value;
-      const preview = document.getElementById('imagePreview');
-
-      if (url) {
-        preview.innerHTML = `
-                    <img src="${url}" 
-                         onerror="this.onerror=null; this.parentElement.innerHTML='<p style=\'color: red;\'>Unable to load image</p>'">
-                `;
-      } else {
-        preview.innerHTML = '<p style="color: var(--gray);">Image preview will appear here</p>';
-      }
     }
 
     // Create Post
     async function createPost() {
       const text = document.getElementById('postText').value;
-      const imageUrl = document.getElementById('imageUrl').value;
+      
 
-      if (!text.trim() && !imageUrl) {
-        showNotification('Please add text or image', 'error');
-        return;
-      }
+      
 
       try {
         // Get user data for channel name
@@ -1838,7 +2242,7 @@
 
         await db.collection('posts').add({
           text: text,
-          imageUrl: imageUrl,
+          
           userId: currentUser.uid,
           channelName: userData.channelName,
           channelImage: userData.profileImage,
@@ -1865,104 +2269,242 @@
     }
 
     // Load Posts
-  async function loadPosts() {
-  try {
-    const postsGrid = document.getElementById('postsGrid');
-    postsGrid.innerHTML = '<div class="loader"></div>';
+    async function loadPosts() {
+      try {
+        const postsGrid = document.getElementById('postsGrid');
+        postsGrid.innerHTML = '<div class="loader"></div>';
 
-    // Get posts
-    const querySnapshot = await db.collection('posts')
-      .orderBy('createdAt', 'desc')
-      .limit(20)
-      .get();
+        // Get posts
+        const querySnapshot = await db.collection('posts')
+          .orderBy('createdAt', 'desc')
+          .limit(20)
+          .get();
 
-    if (querySnapshot.empty) {
-      postsGrid.innerHTML = '<p style="text-align: center; color: var(--gray);">No posts yet. Be the first to post!</p>';
-      return;
+        if (querySnapshot.empty) {
+          postsGrid.innerHTML = '<p style="text-align: center; color: var(--gray);">No posts yet. Be the first to post!</p>';
+          return;
+        }
+
+        // Get all post IDs for comments count
+        const postIds = querySnapshot.docs.map(doc => doc.id);
+
+        // Get comments count for each post
+        const commentsPromises = postIds.map(postId =>
+          db.collection('comments')
+            .where('postId', '==', postId)
+            .get()
+            .then(snapshot => ({
+              postId: postId,
+              count: snapshot.size
+            }))
+        );
+
+        const commentsResults = await Promise.all(commentsPromises);
+        const commentsMap = {};
+        commentsResults.forEach(result => {
+          commentsMap[result.postId] = result.count;
+        });
+
+     // Clear loader and render posts
+postsGrid.innerHTML = '';
+
+querySnapshot.forEach(doc => {
+  const post = doc.data();
+  const postId = doc.id;
+  const isLiked = post.likedBy?.includes(currentUser?.uid) || false;
+  const commentsCount = commentsMap[postId] || 0;
+
+  const postElement = document.createElement('div');
+  postElement.className = 'video-card';
+  postElement.innerHTML = `
+    <div class="thumbnail-container">
+      <div class="channel-info">
+        <img src="${post.channelImage || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + post.userEmail}" 
+             class="channel-avatar"
+             alt="${post.channelName}">
+        <span class="channel-name">${post.channelName}</span>
+        <button class="action-btn follow-btn" onclick="followUser('${post.userId}')" 
+                id="followBtn${post.userId}">
+          <span>Follow</span>
+        </button>
+        <span>${formatTime(post.createdAt?.toDate())}</span>
+      </div>
+      <div class="no-thumbnail">
+        <div class="video-title">
+          ${post.text || 'No text content'}
+        </div>
+        <div class="video-meta"></div>
+      </div>
+    </div>
+    <div class="video-info">
+      <div class="post-actions">
+        <button class="action-btn like-btn ${isLiked ? 'liked' : ''}" 
+                onclick="likePost('${postId}')">
+          <i class="fas fa-heart"></i>
+          <span>${post.likes || 0}</span>
+        </button>
+        <button class="action-btn" onclick="openComments('${postId}')">
+          <i class="fas fa-comment"></i>
+          <span>${commentsCount}</span>
+        </button>
+        <button class="action-btn" onclick="sharePost('${postId}')">
+          <i class="fas fa-share"></i>
+          <span>${post.shares || 0}</span>
+        </button>
+      </div>
+    </div>
+  `;
+  postsGrid.appendChild(postElement);
+});
+  
+      } catch (error) {
+        console.error('Error loading posts:', error);
+        postsGrid.innerHTML = '<p style="text-align: center; color: red;">Error loading posts</p>';
+      }
     }
 
-    // Get all post IDs for comments count
-    const postIds = querySnapshot.docs.map(doc => doc.id);
-    
-    // Get comments count for each post
-    const commentsPromises = postIds.map(postId => 
-      db.collection('comments')
-        .where('postId', '==', postId)
-        .get()
-        .then(snapshot => ({
+    // Like Post
+    // Update likePost function in index.html
+    async function likePost(postId) {
+      try {
+        // Check if user is logged in
+        if (!currentUser || !currentUser.uid) {
+          showNotification('Please login to like posts', 'error');
+          return;
+        }
+
+        const postRef = db.collection('posts').doc(postId);
+        const postDoc = await postRef.get();
+
+        if (!postDoc.exists) {
+          showNotification('Post not found', 'error');
+          return;
+        }
+
+        const post = postDoc.data();
+
+        // Check if post has likedBy array
+        const likedBy = post.likedBy || [];
+
+        // Check if already liked
+        if (likedBy.includes(currentUser.uid)) {
+          showNotification('You already liked this post', 'info');
+          return;
+        }
+
+        // Check if user is trying to like their own post
+        if (post.userId === currentUser.uid) {
+          showNotification('You cannot like your own post', 'info');
+          return;
+        }
+
+        // Update post likes
+        await postRef.update({
+          likes: (post.likes || 0) + 1,
+          likedBy: firebase.firestore.FieldValue.arrayUnion(currentUser.uid)
+        });
+
+        // Give coins to post owner
+        if (post.userId) {
+          await db.collection('users').doc(post.userId).update({
+            balance: firebase.firestore.FieldValue.increment(0.0001),
+            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+          });
+        }
+
+        // Create like tracking
+        await db.collection('likes').add({
           postId: postId,
-          count: snapshot.size
-        }))
-    );
+          postOwnerId: post.userId,
+          likerId: currentUser.uid,
+          coinsEarned: 0.0001,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        });
 
-    const commentsResults = await Promise.all(commentsPromises);
-    const commentsMap = {};
-    commentsResults.forEach(result => {
-      commentsMap[result.postId] = result.count;
+        // Update UI
+        loadPosts();
+        if (currentUser) loadUserData();
+
+        showNotification(`Post liked! ${post.channelName} earned 0.0001 coins!`, 'success');
+
+      } catch (error) {
+        console.error('Like error details:', error);
+
+        if (error.code === 'permission-denied') {
+          showNotification('Permission denied. Please check Firestore rules.', 'error');
+        } else if (error.code === 'unavailable') {
+          showNotification('Network error. Please check your connection.', 'error');
+        } else {
+          showNotification('Error liking post: ' + error.message, 'error');
+        }
+      }
+    }
+// Real-time post updates without page reload
+function setupPostsListener() {
+  // Remove existing listener if any
+  if (window.postsListener) {
+    window.postsListener();
+  }
+  
+  // Setup real-time listener for posts
+  window.postsListener = db.collection('posts')
+    .orderBy('createdAt', 'desc')
+    .limit(20)
+    .onSnapshot((snapshot) => {
+      updatePostsRealTime(snapshot);
     });
+}
 
-    // Clear loader and render posts
-    postsGrid.innerHTML = '';
-
-    querySnapshot.forEach(doc => {
-      const post = doc.data();
-      const postId = doc.id;
-      const isLiked = post.likedBy?.includes(currentUser?.uid) || false;
-      const commentsCount = commentsMap[postId] || 0;
-
-      const postElement = document.createElement('div');
-      postElement.className = 'video-card';
-      postElement.innerHTML = `
-        <div class="thumbnail-container">
-          ${post.imageUrl ?
-            `<img src="${post.imageUrl}" class="post-thumbnail" alt="Post Image" onerror="this.src='https://via.placeholder.com/300x180/333333/666666?text=Image+Error'">` :
-            `<div class="no-thumbnail">
-              <i class="fas fa-file-alt"></i>
-            </div>`
+// Update only changed posts
+async function updatePostsRealTime(snapshot) {
+  try {
+    const changes = snapshot.docChanges();
+    
+    changes.forEach(async (change) => {
+      if (change.type === 'modified') {
+        const postId = change.doc.id;
+        const updatedPost = change.doc.data();
+        
+        // Update likes count
+        const likeBtn = document.querySelector(`[onclick="likePost('${postId}')"]`);
+        if (likeBtn) {
+          const likeCountSpan = likeBtn.querySelector('span');
+          if (likeCountSpan) {
+            likeCountSpan.textContent = updatedPost.likes || 0;
           }
-        </div>
-        <div class="video-info">
-          <div class="channel-info">
-            <img src="${post.channelImage || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + post.userEmail}" 
-                 class="channel-avatar"
-                 alt="${post.channelName}">
-            <span class="channel-name">${post.channelName}</span>
-          </div>
-          <div class="video-title">${post.text?.substring(0, 100) || 'No text content'}${post.text?.length > 100 ? '...' : ''}</div>
-          <div class="video-meta">
-            <span>${formatTime(post.createdAt?.toDate())}</span>
-          </div>
-        </div>
-        <div class="post-actions">
-          <button class="action-btn like-btn ${isLiked ? 'liked' : ''}" 
-                  onclick="likePost('${postId}')">
-            <i class="fas fa-heart"></i>
-            <span>${post.likes || 0}</span>
-          </button>
-          <button class="action-btn" onclick="openComments('${postId}')">
-            <i class="fas fa-comment"></i>
-            <span>${commentsCount}</span>
-          </button>
-          <button class="action-btn" onclick="sharePost('${postId}')">
-            <i class="fas fa-share"></i>
-            <span>${post.shares || 0}</span>
-          </button>
-        </div>
-      `;
-      postsGrid.appendChild(postElement);
+          
+          // Update liked state
+          const isLiked = updatedPost.likedBy?.includes(currentUser?.uid) || false;
+          if (isLiked) {
+            likeBtn.classList.add('liked');
+          } else {
+            likeBtn.classList.remove('liked');
+          }
+        }
+        
+        // Update comments count
+        const commentsBtn = document.querySelector(`[onclick="openComments('${postId}')"]`);
+        if (commentsBtn) {
+          // Get fresh comments count
+          const commentsSnapshot = await db.collection('comments')
+            .where('postId', '==', postId)
+            .get();
+          
+          const commentCountSpan = commentsBtn.querySelector('span');
+          if (commentCountSpan) {
+            commentCountSpan.textContent = commentsSnapshot.size;
+          }
+        }
+      }
     });
-
   } catch (error) {
-    console.error('Error loading posts:', error);
-    postsGrid.innerHTML = '<p style="text-align: center; color: red;">Error loading posts</p>';
+    console.error('Real-time update error:', error);
   }
 }
 
-    // Like Post
-   // Update likePost function in index.html
+// Update likePost function
 async function likePost(postId) {
   try {
-    // Check if user is logged in
     if (!currentUser || !currentUser.uid) {
       showNotification('Please login to like posts', 'error');
       return;
@@ -1977,29 +2519,34 @@ async function likePost(postId) {
     }
 
     const post = postDoc.data();
-    
-    // Check if post has likedBy array
     const likedBy = post.likedBy || [];
 
-    // Check if already liked
     if (likedBy.includes(currentUser.uid)) {
       showNotification('You already liked this post', 'info');
       return;
     }
 
-    // Check if user is trying to like their own post
     if (post.userId === currentUser.uid) {
       showNotification('You cannot like your own post', 'info');
       return;
     }
 
-    // Update post likes
+    // Optimistic update (UI pehle update)
+    const likeBtn = document.querySelector(`[onclick="likePost('${postId}')"]`);
+    if (likeBtn) {
+      const likeCountSpan = likeBtn.querySelector('span');
+      if (likeCountSpan) {
+        likeCountSpan.textContent = (parseInt(likeCountSpan.textContent) || 0) + 1;
+      }
+      likeBtn.classList.add('liked');
+    }
+
+    // Firebase update
     await postRef.update({
       likes: (post.likes || 0) + 1,
       likedBy: firebase.firestore.FieldValue.arrayUnion(currentUser.uid)
     });
 
-    // Give coins to post owner
     if (post.userId) {
       await db.collection('users').doc(post.userId).update({
         balance: firebase.firestore.FieldValue.increment(0.0001),
@@ -2007,7 +2554,6 @@ async function likePost(postId) {
       });
     }
 
-    // Create like tracking
     await db.collection('likes').add({
       postId: postId,
       postOwnerId: post.userId,
@@ -2016,25 +2562,59 @@ async function likePost(postId) {
       timestamp: firebase.firestore.FieldValue.serverTimestamp()
     });
 
-    // Update UI
-    loadPosts();
-    if (currentUser) loadUserData();
+    // Update user balance UI without reload
+    if (currentUser) {
+      const balanceElement = document.getElementById('balance');
+      if (balanceElement) {
+        // Small animation for balance update
+        balanceElement.style.transform = 'scale(1.1)';
+        setTimeout(() => {
+          balanceElement.style.transform = 'scale(1)';
+        }, 300);
+      }
+    }
 
     showNotification(`Post liked! ${post.channelName} earned 0.0001 coins!`, 'success');
 
   } catch (error) {
-    console.error('Like error details:', error);
+    console.error('Like error:', error);
+    showNotification('Error liking post', 'error');
     
-    if (error.code === 'permission-denied') {
-      showNotification('Permission denied. Please check Firestore rules.', 'error');
-    } else if (error.code === 'unavailable') {
-      showNotification('Network error. Please check your connection.', 'error');
-    } else {
-      showNotification('Error liking post: ' + error.message, 'error');
+    // Revert optimistic update on error
+    const likeBtn = document.querySelector(`[onclick="likePost('${postId}')"]`);
+    if (likeBtn) {
+      const likeCountSpan = likeBtn.querySelector('span');
+      if (likeCountSpan) {
+        likeCountSpan.textContent = Math.max(0, (parseInt(likeCountSpan.textContent) || 0) - 1);
+      }
+      likeBtn.classList.remove('liked');
     }
   }
 }
 
+// Aur auth state listener mein add karo
+auth.onAuthStateChanged(async (user) => {
+  if (user) {
+    currentUser = user;
+    document.getElementById('appContainer').style.display = 'flex';
+    hideAuthModal();
+
+    await loadUserData();
+    switchTab('home');
+    setupChatListener();
+    
+    // ✅ YEH LINE ADD KARO
+    setupPostsListener();
+    
+    setupReferralListener();
+
+  } else {
+    document.getElementById('appContainer').style.display = 'none';
+    document.getElementById('authModal').style.display = 'flex';
+    if (chatListener) chatListener();
+    if (window.postsListener) window.postsListener();
+  }
+});
     // Comments System
     function openComments(postId) {
       currentPostId = postId;
@@ -2048,88 +2628,88 @@ async function likePost(postId) {
     }
 
 
-   // In index.html - UPDATE COMMENT FUNCTION:
-async function addComment() {
-  const text = document.getElementById('commentInput').value.trim();
+    // In index.html - UPDATE COMMENT FUNCTION:
+    async function addComment() {
+      const text = document.getElementById('commentInput').value.trim();
 
-  if (!text) {
-    showNotification('Please enter a comment', 'error');
-    return;
-  }
+      if (!text) {
+        showNotification('Please enter a comment', 'error');
+        return;
+      }
 
-  if (!currentPostId) {
-    showNotification('No post selected', 'error');
-    return;
-  }
+      if (!currentPostId) {
+        showNotification('No post selected', 'error');
+        return;
+      }
 
-  if (!currentUser || !currentUser.uid) {
-    showNotification('Please login to comment', 'error');
-    return;
-  }
+      if (!currentUser || !currentUser.uid) {
+        showNotification('Please login to comment', 'error');
+        return;
+      }
 
-  try {
-    // Get user data
-    const userDoc = await db.collection('users').doc(currentUser.uid).get();
-    const userData = userDoc.data();
+      try {
+        // Get user data
+        const userDoc = await db.collection('users').doc(currentUser.uid).get();
+        const userData = userDoc.data();
 
-    // Get post data
-    const postDoc = await db.collection('posts').doc(currentPostId).get();
-    const post = postDoc.data();
+        // Get post data
+        const postDoc = await db.collection('posts').doc(currentPostId).get();
+        const post = postDoc.data();
 
-    // Create comment
-    await db.collection('comments').add({
-      postId: currentPostId,
-      text: text,
-      userId: currentUser.uid,
-      channelName: userData.channelName,
-      userImage: userData.profileImage,
-      userEmail: currentUser.email,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    });
+        // Create comment
+        await db.collection('comments').add({
+          postId: currentPostId,
+          text: text,
+          userId: currentUser.uid,
+          channelName: userData.channelName,
+          userImage: userData.profileImage,
+          userEmail: currentUser.email,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        });
 
-    // Give coins to post owner
-    if (post.userId) {
-      await db.collection('users').doc(post.userId).update({
-        balance: firebase.firestore.FieldValue.increment(0.001),
-        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-      });
+        // Give coins to post owner
+        if (post.userId) {
+          await db.collection('users').doc(post.userId).update({
+            balance: firebase.firestore.FieldValue.increment(0.001),
+            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+          });
+        }
+
+        document.getElementById('commentInput').value = '';
+        loadComments(currentPostId);
+        loadPosts();
+        if (currentUser) loadUserData();
+
+        showNotification('Comment added! Post owner earned 0.001 coins!', 'success');
+      } catch (error) {
+        console.error('Comment error details:', error);
+
+        if (error.code === 'permission-denied') {
+          showNotification('Permission denied. Cannot add comment.', 'error');
+        } else {
+          showNotification('Error adding comment: ' + error.message, 'error');
+        }
+      }
     }
+    // Update loadComments function:
+    async function loadComments(postId) {
+      try {
+        const querySnapshot = await db.collection('comments')
+          .where('postId', '==', postId)
+          .orderBy('timestamp', 'desc')
+          .get();
 
-    document.getElementById('commentInput').value = '';
-    loadComments(currentPostId);
-    loadPosts();
-    if (currentUser) loadUserData();
+        const commentList = document.getElementById('commentList');
+        commentList.innerHTML = '';
 
-    showNotification('Comment added! Post owner earned 0.001 coins!', 'success');
-  } catch (error) {
-    console.error('Comment error details:', error);
-    
-    if (error.code === 'permission-denied') {
-      showNotification('Permission denied. Cannot add comment.', 'error');
-    } else {
-      showNotification('Error adding comment: ' + error.message, 'error');
-    }
-  }
-}
-// Update loadComments function:
-async function loadComments(postId) {
-  try {
-    const querySnapshot = await db.collection('comments')
-      .where('postId', '==', postId)
-      .orderBy('timestamp', 'desc')
-      .get();
+        if (querySnapshot.empty) {
+          commentList.innerHTML = '<p style="text-align: center; color: var(--gray);">No comments yet.</p>';
+          return;
+        }
 
-    const commentList = document.getElementById('commentList');
-    commentList.innerHTML = '';
-
-    if (querySnapshot.empty) {
-      commentList.innerHTML = '<p style="text-align: center; color: var(--gray);">No comments yet.</p>';
-      return;
-    }
-
-    querySnapshot.forEach(doc => {
-      const comment = doc.data();
-      commentList.innerHTML += `
+        querySnapshot.forEach(doc => {
+          const comment = doc.data();
+          commentList.innerHTML += `
         <div class="comment-item">
           <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
             <img src="${comment.userImage || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + comment.userEmail}" 
@@ -2144,225 +2724,174 @@ async function loadComments(postId) {
           <div style="color: var(--light); padding-left: 40px;">${comment.text}</div>
         </div>
       `;
-    });
-  } catch (error) {
-    console.error('Error loading comments:', error);
-  }
-}
+        });
+      } catch (error) {
+        console.error('Error loading comments:', error);
+      }
+    }
 
     // Share Post
-  async function sharePost(postId) {
-  try {
-    if (!currentUser || !currentUser.uid) {
-      showNotification('Please login to share posts', 'error');
-      return;
+    async function sharePost(postId) {
+      try {
+        if (!currentUser || !currentUser.uid) {
+          showNotification('Please login to share posts', 'error');
+          return;
+        }
+
+        const postRef = db.collection('posts').doc(postId);
+        const postDoc = await postRef.get();
+
+        if (!postDoc.exists) {
+          showNotification('Post not found', 'error');
+          return;
+        }
+
+        const post = postDoc.data();
+
+        // Check if user is sharing their own post
+        if (post.userId === currentUser.uid) {
+          showNotification('Sharing your own post does not earn coins', 'info');
+          return;
+        }
+
+        // Update shares count
+        await postRef.update({
+          shares: (post.shares || 0) + 1
+        });
+
+        // Give coins to post owner
+        if (post.userId) {
+          await db.collection('users').doc(post.userId).update({
+            balance: firebase.firestore.FieldValue.increment(0.001),
+            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+          });
+        }
+
+        // Create share tracking
+        await db.collection('shares').add({
+          postId: postId,
+          postOwnerId: post.userId,
+          sharerId: currentUser.uid,
+          coinsEarned: 0.001,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        });
+
+        // Update UI
+        loadPosts();
+        if (currentUser) loadUserData();
+
+        showNotification(`Post shared! ${post.channelName} earned 0.001 coins!`, 'success');
+
+        // Copy share link
+        const shareLink = `https://alidevtech-code.github.io/EarnTube/?ref=${currentUser.uid.substring(0, 8)}`;
+        navigator.clipboard.writeText(shareLink)
+          .then(() => showNotification('Share link copied to clipboard!', 'info'))
+          .catch(() => console.log('Clipboard copy failed'));
+
+      } catch (error) {
+        console.error('Share error details:', error);
+
+        if (error.code === 'permission-denied') {
+          showNotification('Permission denied. Cannot share post.', 'error');
+        } else {
+          showNotification('Error sharing post: ' + error.message, 'error');
+        }
+      }
     }
 
-    const postRef = db.collection('posts').doc(postId);
-    const postDoc = await postRef.get();
-
-    if (!postDoc.exists) {
-      showNotification('Post not found', 'error');
-      return;
-    }
-
-    const post = postDoc.data();
-
-    // Check if user is sharing their own post
-    if (post.userId === currentUser.uid) {
-      showNotification('Sharing your own post does not earn coins', 'info');
-      return;
-    }
-
-    // Update shares count
-    await postRef.update({
-      shares: (post.shares || 0) + 1
-    });
-
-    // Give coins to post owner
-    if (post.userId) {
-      await db.collection('users').doc(post.userId).update({
-        balance: firebase.firestore.FieldValue.increment(0.001),
-        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-      });
-    }
-
-    // Create share tracking
-    await db.collection('shares').add({
-      postId: postId,
-      postOwnerId: post.userId,
-      sharerId: currentUser.uid,
-      coinsEarned: 0.001,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    });
-
-    // Update UI
-    loadPosts();
-    if (currentUser) loadUserData();
-
-    showNotification(`Post shared! ${post.channelName} earned 0.001 coins!`, 'success');
-
-    // Copy share link
-    const shareLink = `https://alidevtech-code.github.io/EarnTube/?ref=${currentUser.uid.substring(0, 8)}`;
-    navigator.clipboard.writeText(shareLink)
-      .then(() => showNotification('Share link copied to clipboard!', 'info'))
-      .catch(() => console.log('Clipboard copy failed'));
-
-  } catch (error) {
-    console.error('Share error details:', error);
     
-    if (error.code === 'permission-denied') {
-      showNotification('Permission denied. Cannot share post.', 'error');
-    } else {
-      showNotification('Error sharing post: ' + error.message, 'error');
-    }
-  }
-}
-
-    // Load Explore
-    async function loadExplore() {
-      try {
-        const querySnapshot = await db.collection('posts')
-          .orderBy('createdAt', 'desc')
-          .limit(20)
-          .get();
-
-        const exploreGrid = document.getElementById('exploreGrid');
-        exploreGrid.innerHTML = '';
-
-        if (querySnapshot.empty) {
-          exploreGrid.innerHTML = '<p style="text-align: center; color: var(--gray);">No posts yet</p>';
-          return;
-        }
-
-        querySnapshot.forEach(doc => {
-          const post = doc.data();
-          const postElement = document.createElement('div');
-          postElement.className = 'video-card';
-          postElement.innerHTML = `
-                        <div class="thumbnail-container">
-                            ${post.imageUrl ?
-              `<img src="${post.imageUrl}" class="post-thumbnail" alt="Post Image">` :
-              `<div class="no-thumbnail">
-                                    <i class="fas fa-fire"></i>
-                                </div>`
-            }
-                        </div>
-                        <div class="video-info">
-                            <div class="channel-info">
-                                <img src="${post.channelImage || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + post.userEmail}" 
-                                     class="channel-avatar"
-                                     alt="${post.channelName}">
-                                <span class="channel-name">${post.channelName}</span>
-                            </div>
-                            <div class="video-title">${post.text?.substring(0, 100) || 'Explore Post'}${post.text?.length > 100 ? '...' : ''}</div>
-                            <div class="video-meta">
-                                <span>❤️ ${post.likes || 0} likes</span>
-                            </div>
-                        </div>
-                    `;
-          exploreGrid.appendChild(postElement);
-        });
-      } catch (error) {
-        console.error('Error loading explore:', error);
-      }
-    }
-
-    // Load Trending
-    async function loadTrending() {
-      try {
-        const querySnapshot = await db.collection('posts')
-          .orderBy('likes', 'desc')
-          .limit(20)
-          .get();
-
-        const trendingGrid = document.getElementById('trendingGrid');
-        trendingGrid.innerHTML = '';
-
-        if (querySnapshot.empty) {
-          trendingGrid.innerHTML = '<p style="text-align: center; color: var(--gray);">No trending posts yet</p>';
-          return;
-        }
-
-        querySnapshot.forEach(doc => {
-          const post = doc.data();
-          const postElement = document.createElement('div');
-          postElement.className = 'video-card';
-          postElement.innerHTML = `
-                        <div class="thumbnail-container">
-                            ${post.imageUrl ?
-              `<img src="${post.imageUrl}" class="post-thumbnail" alt="Post Image">` :
-              `<div class="no-thumbnail">
-                                    <i class="fas fa-fire"></i>
-                                </div>`
-            }
-                        </div>
-                        <div class="video-info">
-                            <div class="channel-info">
-                                <img src="${post.channelImage || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + post.userEmail}" 
-                                     class="channel-avatar"
-                                     alt="${post.channelName}">
-                                <span class="channel-name">${post.channelName}</span>
-                            </div>
-                            <div class="video-title">${post.text?.substring(0, 100) || 'Trending Post'}${post.text?.length > 100 ? '...' : ''}</div>
-                            <div class="video-meta">
-                                <span>🔥 ${post.likes || 0} likes</span>
-                            </div>
-                        </div>
-                    `;
-          trendingGrid.appendChild(postElement);
-        });
-      } catch (error) {
-        console.error('Error loading trending:', error);
-      }
-    }
+    
 
     // Load User Posts
-    async function loadUserPosts() {
-      try {
-        const querySnapshot = await db.collection('posts')
-          .where('userId', '==', currentUser.uid)
-          .orderBy('createdAt', 'desc')
-          .limit(20)
-          .get();
+ async function loadUserPosts() {
+  try {
+    const querySnapshot = await db.collection('posts')
+      .where('userId', '==', currentUser.uid)
+      .orderBy('createdAt', 'desc')
+      .limit(20)
+      .get();
 
-        const userPostsGrid = document.getElementById('userPostsGrid');
-        userPostsGrid.innerHTML = '';
+    const userPostsGrid = document.getElementById('userPostsGrid');
+    userPostsGrid.innerHTML = '';
 
-        if (querySnapshot.empty) {
-          userPostsGrid.innerHTML = '<p style="text-align: center; color: var(--gray);">You haven\'t created any posts yet.</p>';
-          return;
-        }
-
-        querySnapshot.forEach(doc => {
-          const post = doc.data();
-          const postElement = document.createElement('div');
-          postElement.className = 'video-card';
-          postElement.innerHTML = `
-                        <div class="thumbnail-container">
-                            ${post.imageUrl ?
-              `<img src="${post.imageUrl}" class="post-thumbnail" alt="Post Image">` :
-              `<div class="no-thumbnail">
-                                    <i class="fas fa-user"></i>
-                                </div>`
-            }
-                        </div>
-                        <div class="video-info">
-                            <div class="video-title">${post.text?.substring(0, 100) || 'My Post'}${post.text?.length > 100 ? '...' : ''}</div>
-                            <div class="video-meta">
-                                <span>❤️ ${post.likes || 0} likes</span>
-                                <span>•</span>
-                                <span>💬 ${post.comments?.length || 0} comments</span>
-                            </div>
-                        </div>
-                    `;
-          userPostsGrid.appendChild(postElement);
-        });
-      } catch (error) {
-        console.error('Error loading user posts:', error);
-      }
+    if (querySnapshot.empty) {
+      userPostsGrid.innerHTML = '<p style="text-align: center; color: var(--gray);">You haven\'t created any posts yet.</p>';
+      return;
     }
 
+    // Get comments count for each post
+    const postIds = querySnapshot.docs.map(doc => doc.id);
+    const commentsPromises = postIds.map(postId => 
+      db.collection('comments')
+        .where('postId', '==', postId)
+        .get()
+        .then(snapshot => ({
+          postId: postId,
+          count: snapshot.size
+        }))
+    );
+    
+    const commentsResults = await Promise.all(commentsPromises);
+    const commentsMap = {};
+    commentsResults.forEach(result => {
+      commentsMap[result.postId] = result.count;
+    });
+
+    querySnapshot.forEach(doc => {
+      const post = doc.data();
+      const postId = doc.id;
+      const isLiked = post.likedBy?.includes(currentUser?.uid) || false;
+      const commentsCount = commentsMap[postId] || 0;
+
+      const postElement = document.createElement('div');
+      postElement.className = 'video-card';
+      postElement.innerHTML = `
+        <div class="thumbnail-container">
+          <div class="channel-info">
+            <img src="${post.channelImage || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + post.userEmail}" 
+                 class="channel-avatar"
+                 alt="${post.channelName}">
+            <span class="channel-name">${post.channelName}</span>
+            <button class="action-btn follow-btn" onclick="followUser('${post.userId}')" 
+                    id="followBtn${post.userId}">
+              <span>Follow</span>
+            </button>
+            <span>${formatTime(post.createdAt?.toDate())}</span>
+          </div>
+          ${post.imageUrl ?
+            `<img src="${post.imageUrl}" class="post-thumbnail" alt="Post Image" onerror="this.src='https://via.placeholder.com/300x180/333333/666666?text=Image+Error'">` :
+            `<div class="no-thumbnail">
+              <div class="video-title">
+                ${post.text || 'No text content'}
+              </div>
+              <div class="video-meta"></div>
+            </div>`
+          }
+        </div>
+        <div class="video-info">
+          <div class="post-actions">
+            <button class="action-btn like-btn ${isLiked ? 'liked' : ''}" 
+                    onclick="likePost('${postId}')">
+              <i class="fas fa-heart"></i>
+              <span>${post.likes || 0}</span>
+            </button>
+            <button class="action-btn" onclick="openComments('${postId}')">
+              <i class="fas fa-comment"></i>
+              <span>${commentsCount}</span>
+            </button>
+            <button class="action-btn" onclick="sharePost('${postId}')">
+              <i class="fas fa-share"></i>
+              <span>${post.shares || 0}</span>
+            </button>
+          </div>
+        </div>
+      `;
+      userPostsGrid.appendChild(postElement);
+    });
+  } catch (error) {
+    console.error('Error loading user posts:', error);
+  }
+}
     // Withdraw Modal Functions
     function openWithdrawModal() {
       document.getElementById('withdrawModal').style.display = 'flex';
@@ -2387,64 +2916,64 @@ async function loadComments(postId) {
     }
 
     // Request Withdrawal
- // Update requestWithdrawal function
-async function requestWithdrawal() {
-  const amount = parseFloat(document.getElementById('withdrawAmount').value);
-  const method = document.getElementById('paymentMethod').value;
-  const account = document.getElementById('accountNumber').value;
+    // Update requestWithdrawal function
+    async function requestWithdrawal() {
+      const amount = parseFloat(document.getElementById('withdrawAmount').value);
+      const method = document.getElementById('paymentMethod').value;
+      const account = document.getElementById('accountNumber').value;
 
-  if (!account) {
-    showNotification('Please enter account number', 'error');
-    return;
-  }
+      if (!account) {
+        showNotification('Please enter account number', 'error');
+        return;
+      }
 
-  if (amount < 50000) {
-    showNotification('Minimum withdrawal is 50,000 coins', 'error');
-    return;
-  }
+      if (amount < 50000) {
+        showNotification('Minimum withdrawal is 50,000 coins', 'error');
+        return;
+      }
 
-  try {
-    const userDoc = await db.collection('users').doc(currentUser.uid).get();
-    const userData = userDoc.data();
-    const balance = userData.balance || 0;
+      try {
+        const userDoc = await db.collection('users').doc(currentUser.uid).get();
+        const userData = userDoc.data();
+        const balance = userData.balance || 0;
 
-    if (balance < amount) {
-      showNotification(`Insufficient balance! You have ${balance.toFixed(4)} coins`, 'error');
-      return;
+        if (balance < amount) {
+          showNotification(`Insufficient balance! You have ${balance.toFixed(4)} coins`, 'error');
+          return;
+        }
+
+        // ✅ Create withdrawal request
+        await db.collection('withdrawals').add({
+          userId: currentUser.uid,
+          channelName: userData.channelName,
+          amount: amount,
+          method: method,
+          accountNumber: account,
+          pkrAmount: (amount / 500).toFixed(2), // 50,000 coins = 100 PKR
+          status: 'pending',
+          requestedAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+
+        // ✅ Deduct from balance
+        await db.collection('users').doc(currentUser.uid).update({
+          balance: firebase.firestore.FieldValue.increment(-amount),
+          updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+
+        // Clear form
+        document.getElementById('withdrawAmount').value = '';
+        document.getElementById('accountNumber').value = '';
+
+        // Update UI
+        loadUserData();
+        await loadWithdrawalHistory();
+
+        showNotification('Withdrawal request submitted!', 'success');
+      } catch (error) {
+        console.error('Withdrawal error:', error);
+        showNotification('Error: ' + error.message, 'error');
+      }
     }
-
-    // ✅ Create withdrawal request
-    await db.collection('withdrawals').add({
-      userId: currentUser.uid,
-      channelName: userData.channelName,
-      amount: amount,
-      method: method,
-      accountNumber: account,
-      pkrAmount: (amount / 500).toFixed(2), // 50,000 coins = 100 PKR
-      status: 'pending',
-      requestedAt: firebase.firestore.FieldValue.serverTimestamp()
-    });
-
-    // ✅ Deduct from balance
-    await db.collection('users').doc(currentUser.uid).update({
-      balance: firebase.firestore.FieldValue.increment(-amount),
-      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-    });
-
-    // Clear form
-    document.getElementById('withdrawAmount').value = '';
-    document.getElementById('accountNumber').value = '';
-
-    // Update UI
-    loadUserData();
-    await loadWithdrawalHistory();
-
-    showNotification('Withdrawal request submitted!', 'success');
-  } catch (error) {
-    console.error('Withdrawal error:', error);
-    showNotification('Error: ' + error.message, 'error');
-  }
-}
     // Load Withdrawal History
     async function loadWithdrawalHistory() {
       try {
@@ -2609,92 +3138,168 @@ async function requestWithdrawal() {
       }
     }
 
-    // Chat System
-    function setupChatListener() {
-      if (chatListener) chatListener();
+    // Chat System - Auto Reset every 24h
+function setupChatListener() {
+  if (chatListener) chatListener();
 
-      chatListener = db.collection('group_chat')
-        .orderBy('timestamp', 'asc')
-        .onSnapshot((snapshot) => {
-          loadMessages();
-        });
+  // Check if chat needs reset
+  checkAndResetChat();
+
+  chatListener = db.collection('group_chat')
+    .orderBy('timestamp', 'asc')
+    .onSnapshot((snapshot) => {
+      loadMessages();
+    });
+}
+
+// Check and reset chat every 24 hours
+async function checkAndResetChat() {
+  try {
+    const resetDoc = await db.collection('chat_settings').doc('last_reset').get();
+    
+    const now = new Date();
+    
+    if (!resetDoc.exists) {
+      // First time - create document
+      await db.collection('chat_settings').doc('last_reset').set({
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+      return;
+    }
+    
+    let lastResetTime = resetDoc.data().timestamp.toDate();
+    
+    // If more than 24 hours passed
+    if ((now - lastResetTime) > (24 * 60 * 60 * 1000)) {
+      await resetChatHistory();
+      
+      // Update last reset time
+      await db.collection('chat_settings').doc('last_reset').set({
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+      
+      console.log('Chat reset for new day');
+    }
+  } catch (error) {
+    console.error('Error checking chat reset:', error);
+  }
+}
+
+// Reset all chat messages
+async function resetChatHistory() {
+  try {
+    const chatSnapshot = await db.collection('group_chat').get();
+    
+    const batch = db.batch();
+    chatSnapshot.forEach(doc => {
+      batch.delete(doc.ref);
+    });
+    
+    await batch.commit();
+    
+    // Add system message
+    await db.collection('group_chat').add({
+      text: "💬 Chat has been reset for new day. Start fresh conversation!",
+      userId: 'system',
+      channelName: 'System',
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    });
+  } catch (error) {
+    console.error('Error resetting chat:', error);
+  }
+}
+
+async function loadMessages() {
+  try {
+    const querySnapshot = await db.collection('group_chat')
+      .orderBy('timestamp', 'desc')
+      .limit(50)
+      .get();
+
+    const chatMessages = document.getElementById('chatMessages');
+    chatMessages.innerHTML = '';
+
+    if (querySnapshot.empty) {
+      chatMessages.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 20px;">No messages yet. Start the conversation!</p>';
+      return;
     }
 
-    async function loadMessages() {
-      try {
-        const querySnapshot = await db.collection('group_chat')
-          .orderBy('timestamp', 'desc')
-          .limit(50)
-          .get();
+    const messages = [];
+    querySnapshot.forEach(doc => {
+      messages.unshift(doc.data());
+    });
 
-        const chatMessages = document.getElementById('chatMessages');
-        chatMessages.innerHTML = '';
+    messages.forEach(message => {
+      const isCurrentUser = message.userId === currentUser.uid;
 
-        if (querySnapshot.empty) {
-          chatMessages.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 20px;">No messages yet. Start the conversation!</p>';
-          return;
-        }
+      chatMessages.innerHTML += `
+        <div class="chat-message ${isCurrentUser ? 'sent' : ''}">
+          <div style="font-size: 12px; color: var(--gray); margin-bottom: 2px;">
+            ${isCurrentUser ? 'You' : message.channelName}
+          </div>
+          <div class="message-content">
+            ${message.text}
+          </div>
+          <div style="font-size: 10px; color: var(--gray); margin-top: 2px; text-align: ${isCurrentUser ? 'right' : 'left'};">
+            ${formatTime(message.timestamp?.toDate())}
+          </div>
+        </div>
+      `;
+    });
 
-        // Convert to array and reverse to show newest at bottom
-        const messages = [];
-        querySnapshot.forEach(doc => {
-          messages.unshift(doc.data());
-        });
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  } catch (error) {
+    console.error('Error loading messages:', error);
+  }
+}
 
-        messages.forEach(message => {
-          const isCurrentUser = message.userId === currentUser.uid;
+async function sendMessage() {
+  const input = document.getElementById('messageInput');
+  const text = input.value.trim();
 
-          chatMessages.innerHTML += `
-                        <div class="chat-message ${isCurrentUser ? 'sent' : ''}">
-                            <div style="font-size: 12px; color: var(--gray); margin-bottom: 2px;">
-                                ${isCurrentUser ? 'You' : message.channelName}
-                            </div>
-                            <div class="message-content">
-                                ${message.text}
-                            </div>
-                            <div style="font-size: 10px; color: var(--gray); margin-top: 2px; text-align: ${isCurrentUser ? 'right' : 'left'};">
-                                ${formatTime(message.timestamp?.toDate())}
-                            </div>
-                        </div>
-                    `;
-        });
+  if (!text) return;
 
-        // Scroll to bottom
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-      } catch (error) {
-        console.error('Error loading messages:', error);
+  try {
+    const userDoc = await db.collection('users').doc(currentUser.uid).get();
+    const userData = userDoc.data();
+
+    await db.collection('group_chat').add({
+      text: text,
+      userId: currentUser.uid,
+      channelName: userData.channelName,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    input.value = '';
+  } catch (error) {
+    showNotification('Error: ' + error.message, 'error');
+  }
+}
+    // Toggle post text (Show more/Less)
+    function togglePostText(postId, fullText) {
+      const textElement = document.getElementById(`postText${postId}`);
+      const buttonElement = textElement.nextElementSibling;
+
+      if (textElement.classList.contains('expanded')) {
+        // Collapse text
+        const shortText = fullText.length > 150 ?
+          fullText.substring(0, 150) + '...' : fullText;
+        textElement.innerHTML = shortText;
+        textElement.classList.remove('expanded');
+        if (buttonElement) buttonElement.textContent = 'Show more';
+      } else {
+        // Expand text
+        textElement.innerHTML = fullText;
+        textElement.classList.add('expanded');
+        if (buttonElement) buttonElement.textContent = 'Show less';
       }
     }
-
-    async function sendMessage() {
-      const input = document.getElementById('messageInput');
-      const text = input.value.trim();
-
-      if (!text) return;
-
-      try {
-        // Get user data for channel name
-        const userDoc = await db.collection('users').doc(currentUser.uid).get();
-        const userData = userDoc.data();
-
-        await db.collection('group_chat').add({
-          text: text,
-          userId: currentUser.uid,
-          channelName: userData.channelName,
-          timestamp: firebase.firestore.FieldValue.serverTimestamp()
-        });
-
-        input.value = '';
-      } catch (error) {
-        showNotification('Error: ' + error.message, 'error');
-      }
-    }
-
     // Toggle Sidebar
     function toggleSidebar() {
       const sidebar = document.getElementById('sidebar');
       sidebar.style.display = sidebar.style.display === 'none' ? 'block' : 'none';
     }
+    
     // Load Referral Stats - FIXED VERSION
     async function loadReferralStats() {
       try {
@@ -2705,7 +3310,7 @@ async function requestWithdrawal() {
         document.getElementById('referralCodeDisplay').value = userData.referralCode || '';
 
         // Set referral link
-       const referralLink = `https://alidevtech-code.github.io/EarnTube/?ref=${userData.referralCode}`;
+        const referralLink = `https://alidevtech-code.github.io/EarnTube/?ref=${userData.referralCode}`;
         document.getElementById('referralLink').value = referralLink;
 
         // Count successful referrals
@@ -2778,34 +3383,34 @@ async function requestWithdrawal() {
 
     // Real-time listener for referrals - FIXED VERSION
     // Real-time listener for referrals - FIXED VERSION
-function setupReferralListener() {
-    return db.collection('referrals')
+    function setupReferralListener() {
+      return db.collection('referrals')
         .where('referrerId', '==', currentUser.uid)
         .onSnapshot((snapshot) => {
-            snapshot.docChanges().forEach((change) => {
-                if (change.type === 'modified') {
-                    const newData = change.doc.data();
-                    const oldData = change.doc.previous.data ? change.doc.previous.data() : {};
+          snapshot.docChanges().forEach((change) => {
+            if (change.type === 'modified') {
+              const newData = change.doc.data();
+              const oldData = change.doc.previous.data ? change.doc.previous.data() : {};
 
-                    // Check if status changed from pending to approved
-                    if (newData.status === 'approved' && oldData.status === 'pending') {
-                        // ✅ Balance real-time update hoga
-                        loadUserData();
-                        
-                        // ✅ Real-time notification
-                        showNotification(`🎉 Referral approved! You earned 5 PKR (2.5 coins)`, 'success');
-                        
-                        // ✅ Referral stats update
-                        loadReferralStats();
-                    }
-                }
-            });
+              // Check if status changed from pending to approved
+              if (newData.status === 'approved' && oldData.status === 'pending') {
+                // ✅ Balance real-time update hoga
+                loadUserData();
+
+                // ✅ Real-time notification
+                showNotification(`🎉 Referral approved! You earned 5 PKR (2.5 coins)`, 'success');
+
+                // ✅ Referral stats update
+                loadReferralStats();
+              }
+            }
+          });
         });
-}
+    }
 
-// Update auth state listener
-auth.onAuthStateChanged(async (user) => {
-    if (user) {
+    // Update auth state listener
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
         currentUser = user;
         document.getElementById('appContainer').style.display = 'flex';
         hideAuthModal();
@@ -2814,16 +3419,16 @@ auth.onAuthStateChanged(async (user) => {
         await loadUserData();
         switchTab('home');
         setupChatListener();
-        
+
         // ✅ YEH LINE ADD KARO - Referral listener setup karo
         setupReferralListener();
 
-    } else {
+      } else {
         document.getElementById('appContainer').style.display = 'none';
         document.getElementById('authModal').style.display = 'flex';
         if (chatListener) chatListener();
-    }
-});
+      }
+    });
 
     // Format Time
     function formatTime(date) {
