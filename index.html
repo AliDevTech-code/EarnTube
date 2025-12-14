@@ -1119,6 +1119,82 @@
       content: "\f00c";
       /* fa-check */
     }
+    /* Profile Stats Grid */
+.profile-stats-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.profile-stat {
+  text-align: center;
+  min-width: 80px;
+}
+
+.profile-stat h3 {
+  font-size: 24px;
+  color: var(--primary);
+  margin-bottom: 5px;
+}
+
+.profile-stat p {
+  color: var(--gray);
+  font-size: 14px;
+}
+
+/* Mobile Profile Fix */
+@media (max-width: 768px) {
+  .profile-header {
+    padding: 20px 15px;
+  }
+  
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .channel-name-large {
+    font-size: 20px;
+  }
+  
+  .profile-stats-grid {
+    gap: 20px;
+  }
+  
+  .profile-stat {
+    min-width: 70px;
+  }
+  
+  .profile-stat h3 {
+    font-size: 20px;
+  }
+  
+  .profile-stat p {
+    font-size: 12px;
+  }
+  
+  .btn-primary {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 375px) {
+  .profile-stats-grid {
+    gap: 15px;
+  }
+  
+  .profile-stat {
+    min-width: 60px;
+  }
+  
+  .profile-stat h3 {
+    font-size: 18px;
+  }
+}
   </style>
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
@@ -1262,42 +1338,46 @@
         </div>
 
         
+      <!-- Profile Tab -->
+<div id="profileTab" class="tab-content" style="display: none;">
+  <div class="profile-header">
+    <button class="profile-edit-btn" onclick="openProfileEdit()">
+      <i class="fas fa-edit"></i> Edit
+    </button>
+    <div style="text-align: center;">
+      <img src="https://ui-avatars.com/api/?name=user&background=0D8ABC&color=fff&size=128&format=svg"
+        class="profile-avatar" id="profileAvatar" onclick="openProfileEdit()">
+      <h1 class="channel-name-large" id="channelName">Channel Name</h1>
+      <p style="color: var(--gray);" id="profileEmail">user@example.com</p>
       
-        <!-- Profile Tab -->
-        <div id="profileTab" class="tab-content" style="display: none;">
-          <div class="profile-header">
-            <button class="profile-edit-btn" onclick="openProfileEdit()">
-              <i class="fas fa-edit"></i> Edit
-            </button>
-            <div style="text-align: center;">
-              <img src="https://ui-avatars.com/api/?name=user&background=0D8ABC&color=fff&size=128&format=svg"
-                class="profile-avatar" id="profileAvatar" onclick="openProfileEdit()">
-              <h1 class="channel-name-large" id="channelName">Channel Name</h1>
-              <p style="color: var(--gray);" id="profileEmail">user@example.com</p>
-              <div style="margin-top: 20px; display: flex; justify-content: center; gap: 30px;">
-                <div style="text-align: center;">
-                  <h3 id="postCount">0</h3>
-                  <p style="color: var(--gray);">Posts</p>
-                </div>
-                <div style="text-align: center;">
-                  <h3 id="likeCount">0</h3>
-                  <p style="color: var(--gray);">Likes</p>
-                </div>
-                <div style="margin: 15px 0;">
-                  <button class="btn btn-primary" onclick="followUser('${currentUser.uid}')" id="profileFollowBtn">
-                    <i class="fas fa-user-plus"></i> Follow
-                  </button>
-                  <span style="margin-left: 15px; color: var(--gray);">
-                    <i class="fas fa-users"></i> <span id="followerCount">0</span> followers
-                  </span>
-                </div>
-                <div style="text-align: center;">
-                  <h3 id="coinCount">0</h3>
-                  <p style="color: var(--gray);">Coins</p>
-                </div>
-              </div>
+      <!-- Follow Section - CENTERED -->
+      <div style="margin: 20px 0; text-align: center;">
+        <button class="btn btn-primary" onclick="followUser('${currentUser.uid}')" id="profileFollowBtn">
+          <i class="fas fa-user-plus"></i> Follow
+        </button>
+        <div style="margin-top: 10px; color: var(--gray);">
+          <i class="fas fa-users"></i> <span id="followerCount">0</span> followers
+        </div>
+      </div>
+      
+      <!-- Stats Grid - IMPROVED FOR MOBILE -->
+      <div class="profile-stats-grid">
+        <div class="profile-stat">
+          <h3 id="postCount">0</h3>
+          <p>Posts</p>
+        </div>
+        <div class="profile-stat">
+          <h3 id="likeCount">0</h3>
+          <p>Likes</p>
+        </div>
+        <div class="profile-stat">
+          <h3 id="coinCount">0</h3>
+          <p>Coins</p>
+        </div>
+      </div>
+    </div>
             </div>
-          </div>
+        
 
           <h2 style="margin-bottom: 20px;">My Posts</h2>
           <div class="posts-grid" id="userPostsGrid">
@@ -3467,3 +3547,4 @@ async function sendMessage() {
 </body>
 
 </html>
+
