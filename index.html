@@ -190,6 +190,24 @@
       padding: 20px 10px;
       overflow-y: auto;
       border-right: 1px solid #303030;
+      position: relative;
+      z-index: 99;
+    }
+
+    /* Mobile sidebar overlay */
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 98;
+    }
+
+    .sidebar-overlay.active {
+      display: block;
     }
 
     .sidebar-section {
@@ -221,7 +239,6 @@
     /* Scrollbar styling */
     .sidebar::-webkit-scrollbar {
       width: 4px;
-      /* Thin scrollbar */
     }
 
     .sidebar::-webkit-scrollbar-track {
@@ -229,8 +246,7 @@
     }
 
     .sidebar::-webkit-scrollbar-thumb {
-     background: #f36100;
-      /* Dark grey scroll handle */
+      background: #f36100;
       border-radius: 10px;
     }
 
@@ -330,29 +346,23 @@
     }
 
     /* Text expansion styles */
-    /* Post text with scroll */
     .video-title {
       font-size: 15px;
-      font-weight: normal;
+      font-weight: 700;
       margin-bottom: 24px;
       margin-top: -50px;
       line-height: 1.5;
       max-height: 100px;
-      /* Fixed height */
       overflow-y: auto;
-      /* Vertical scroll */
       padding: 5px 5px;
       color: #e0e0e0;
       text-align: center;
       white-space: pre-wrap;
-      /* Preserve line breaks */
       word-wrap: break-word;
     }
 
-    /* Scrollbar styling */
     .video-title::-webkit-scrollbar {
       width: 4px;
-      /* Thin scrollbar */
     }
 
     .video-title::-webkit-scrollbar-track {
@@ -360,23 +370,13 @@
     }
 
     .video-title::-webkit-scrollbar-thumb {
-       background: #f36100;
-      /* Dark grey scroll handle */
+      background: #f36100;
       border-radius: 10px;
     }
 
     .video-title::-webkit-scrollbar-thumb:hover {
       background: #888;
     }
-
-    /* Mobile mein height kam karo */
-    @media (max-width: 768px) {
-      .video-title {
-        max-height: 92px;
-        font-size: 14px;
-      }
-    }
-
 
     .video-meta {
       display: flex;
@@ -390,7 +390,6 @@
     .post-actions {
       display: flex;
       justify-content: space-around;
-
       border-top: 1px solid #303030;
     }
 
@@ -479,10 +478,9 @@
       max-height: 80vh;
       overflow-y: auto;
     }
- /* Scrollbar styling */
-   .withdraw-modal-content::-webkit-scrollbar {
+
+    .withdraw-modal-content::-webkit-scrollbar {
       width: 4px;
-      /* Thin scrollbar */
     }
 
     .withdraw-modal-content::-webkit-scrollbar-track {
@@ -490,22 +488,14 @@
     }
 
     .withdraw-modal-content::-webkit-scrollbar-thumb {
-        background: #f36100;
-      /* Dark grey scroll handle */
+      background: #f36100;
       border-radius: 10px;
     }
 
-   .withdraw-modal-content::-webkit-scrollbar-thumb:hover {
+    .withdraw-modal-content::-webkit-scrollbar-thumb:hover {
       background: #888;
     }
 
-    /* Mobile mein height kam karo */
-    @media (max-width: 768px) {
-      .video-title {
-        max-height: 92px;
-        font-size: 14px;
-      }
-    }
     .withdraw-tabs {
       display: flex;
       border-bottom: 1px solid #303030;
@@ -560,44 +550,24 @@
       max-height: 80vh;
       overflow-y: auto;
       transform: scale(0.95);
-      /* Modal size control */
       transition: transform 0.3s ease;
     }
-     /* Scrollbar styling */
-  .referral-modal-content::-webkit-scrollbar {
+
+    .referral-modal-content::-webkit-scrollbar {
       width: 4px;
-      /* Thin scrollbar */
     }
 
     .referral-modal-content::-webkit-scrollbar-track {
       background: transparent;
     }
 
- .referral-modal-content::-webkit-scrollbar-thumb {
-     background: #f36100;
-      /* Dark grey scroll handle */
+    .referral-modal-content::-webkit-scrollbar-thumb {
+      background: #f36100;
       border-radius: 10px;
     }
 
-   .referral-modal-content::-webkit-scrollbar-thumb:hover {
+    .referral-modal-content::-webkit-scrollbar-thumb:hover {
       background: #888;
-    }
-
-    /* Mobile specific modal fix */
-    @media (max-width: 480px) {
-      .referral-modal {
-        padding: 10px;
-        align-items: flex-start;
-        padding-top: 30px;
-      }
-
-      .referral-modal-content {
-        width: 100%;
-        max-width: 100%;
-        max-height: 85vh;
-        border-radius: 8px;
-        transform: none;
-      }
     }
 
     /* Profile Update Modal */
@@ -717,6 +687,17 @@
     @media (max-width: 768px) {
       .sidebar {
         display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background: var(--dark);
+        z-index: 1000;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .sidebar.active {
+        display: block;
       }
 
       .mobile-footer {
@@ -732,13 +713,33 @@
       }
 
       .content-area {
+        padding: 15px;
         padding-bottom: 80px;
       }
+
+      /* Mobile specific modal fix */
+      .referral-modal {
+        padding: 10px;
+        align-items: flex-start;
+        padding-top: 30px;
+      }
+
+      .referral-modal-content {
+        width: 100%;
+        max-width: 100%;
+        max-height: 85vh;
+        border-radius: 8px;
+        transform: none;
+      }
+
+      .video-title {
+        max-height: 92px;
+        font-size: 14px;
+      }
     }
- /* Scrollbar styling */
-   .content-area::-webkit-scrollbar {
+
+    .content-area::-webkit-scrollbar {
       width: 4px;
-      /* Thin scrollbar */
     }
 
     .content-area::-webkit-scrollbar-track {
@@ -747,22 +748,14 @@
 
     .content-area::-webkit-scrollbar-thumb {
       background: #f36100;
-      /* Dark grey scroll handle */
       border-radius: 10px;
     }
 
-  .content-area::-webkit-scrollbar-thumb:hover {
+    .content-area::-webkit-scrollbar-thumb:hover {
       background: #888;
     }
 
-    /* Mobile mein height kam karo */
-    @media (max-width: 768px) {
-      .video-title {
-        max-height: 92px;
-        font-size: 14px;
-      }
-    }
-    /* Profile Page */
+    /* Profile Page - Mobile Responsive */
     .profile-header {
       background: var(--card-bg);
       border-radius: 15px;
@@ -781,6 +774,7 @@
       padding: 8px 15px;
       border-radius: 5px;
       cursor: pointer;
+      z-index: 1;
     }
 
     .profile-avatar {
@@ -790,12 +784,176 @@
       object-fit: cover;
       border: 3px solid var(--primary);
       cursor: pointer;
+      margin: 0 auto;
+      display: block;
     }
 
     .channel-name-large {
       font-size: 24px;
       font-weight: bold;
       margin: 10px 0 5px 0;
+      text-align: center;
+    }
+
+    .profile-stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .profile-stat {
+      text-align: center;
+      min-width: 80px;
+    }
+
+    .profile-stat h3 {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .profile-stat p {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    /* Mobile profile styles */
+    @media (max-width: 768px) {
+      .profile-header {
+        padding: 20px 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+
+      .profile-avatar {
+        width: 100px;
+        height: 100px;
+      }
+
+      .channel-name-large {
+        font-size: 20px;
+      }
+
+      .profile-stats {
+        gap: 20px;
+        margin-top: 15px;
+      }
+
+      .profile-stat {
+        min-width: 70px;
+      }
+
+      .profile-stat h3 {
+        font-size: 20px;
+      }
+
+      .profile-stat p {
+        font-size: 12px;
+      }
+
+      .profile-edit-btn {
+        top: 15px;
+        right: 15px;
+        padding: 6px 12px;
+        font-size: 14px;
+      }
+
+      /* Hide follow button on own profile in mobile */
+      .profile-follow-btn {
+        display: none !important;
+      }
+    }
+
+    /* Friends Tab - Users List */
+    .users-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .user-card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .user-card:hover {
+      background: var(--hover-bg);
+      transform: translateY(-3px);
+    }
+
+    .user-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+    }
+
+    .user-info {
+      flex: 1;
+    }
+
+    .user-name {
+      font-weight: bold;
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+
+    .user-email {
+      color: var(--gray);
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .user-stats {
+      display: flex;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    .follow-btn-user {
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+
+    .follow-btn-user.following {
+      background: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      .users-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .user-card {
+        padding: 15px;
+      }
+
+      .user-avatar {
+        width: 50px;
+        height: 50px;
+      }
+
+      .follow-btn-user {
+        padding: 6px 15px;
+        font-size: 14px;
+      }
     }
 
     /* Referral System */
@@ -862,7 +1020,7 @@
       color: white;
     }
 
-    /* Chat System Fixed */
+    /* Chat System */
     .chat-container {
       background: var(--card-bg);
       border-radius: 15px;
@@ -877,10 +1035,9 @@
       padding: 20px;
       overflow-y: auto;
     }
-/* Scrollbar styling */
-   .chat-messages::-webkit-scrollbar {
+
+    .chat-messages::-webkit-scrollbar {
       width: 4px;
-      /* Thin scrollbar */
     }
 
     .chat-messages::-webkit-scrollbar-track {
@@ -888,22 +1045,14 @@
     }
 
     .chat-messages::-webkit-scrollbar-thumb {
-       background: #f36100;
-      /* Dark grey scroll handle */
+      background: #f36100;
       border-radius: 10px;
     }
 
-   .chat-messages::-webkit-scrollbar-thumb:hover {
+    .chat-messages::-webkit-scrollbar-thumb:hover {
       background: #888;
     }
 
-    /* Mobile mein height kam karo */
-    @media (max-width: 768px) {
-      .video-title {
-        max-height: 92px;
-        font-size: 14px;
-      }
-    }
     .chat-message {
       margin-bottom: 15px;
       max-width: 80%;
@@ -913,40 +1062,19 @@
       margin-left: auto;
     }
 
-    /* OTHER PERSON'S MESSAGE (BLUE) */
     .message-content {
       padding: 10px 15px;
       border-radius: 18px 18px 18px 5px;
       background: #3EA6FF;
-      /* YouTube-like blue */
       color: white;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
-    /* MY MESSAGE (RED) */
     .chat-message.sent .message-content {
       background: var(--primary);
-      /* FF0000 red */
       color: white;
       border-radius: 18px 18px 5px 18px;
       box-shadow: 0 2px 5px rgba(255, 0, 0, 0.2);
-    }
-
-    /* Mobile fix */
-    @media (max-width: 768px) {
-      .chat-container {
-        height: 400px;
-        border-radius: 10px;
-      }
-
-      .chat-messages {
-        padding: 15px;
-      }
-
-      .message-content {
-        padding: 8px 12px;
-        font-size: 14px;
-      }
     }
 
     /* Coming Soon */
@@ -1076,7 +1204,6 @@
     }
 
     /* Follow Button Styling */
-    /* Follow Button Styling */
     .follow-btn {
       background: linear-gradient(45deg, var(--primary), var(--accent));
       border: none;
@@ -1086,115 +1213,35 @@
       border-radius: 20px;
       border: 1px solid var(--gray);
       transition: all 0.3s;
-    }
-
-    /* FOLLOWED HO JAYE TOH - Same as before */
-    .follow-btn.following {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
-
-    /* BEFORE FOLLOW (Gradient) */
-    .follow-btn {
-      background: linear-gradient(45deg, var(--primary), var(--accent));
       color: white;
       border: 1px solid var(--primary);
     }
 
-    /* AFTER FOLLOW (Solid red) */
     .follow-btn.following {
       background: var(--primary);
       color: white;
       border-color: var(--primary);
     }
 
-    /* Icon change after follow */
-    .follow-btn i::before {
-      content: "\f234";
-      /* fa-user-plus */
+    /* Hide follow button on own profile */
+    .profile-follow-btn {
+      display: none;
     }
 
-    .follow-btn.following i::before {
-      content: "\f00c";
-      /* fa-check */
+    /* Friends Page */
+    .friends-search {
+      margin-bottom: 20px;
     }
-    /* Profile Stats Grid */
-.profile-stats-grid {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
 
-.profile-stat {
-  text-align: center;
-  min-width: 80px;
-}
-
-.profile-stat h3 {
-  font-size: 24px;
-  color: var(--primary);
-  margin-bottom: 5px;
-}
-
-.profile-stat p {
-  color: var(--gray);
-  font-size: 14px;
-}
-
-/* Mobile Profile Fix */
-@media (max-width: 768px) {
-  .profile-header {
-    padding: 20px 15px;
-  }
-  
-  .profile-avatar {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .channel-name-large {
-    font-size: 20px;
-  }
-  
-  .profile-stats-grid {
-    gap: 20px;
-  }
-  
-  .profile-stat {
-    min-width: 70px;
-  }
-  
-  .profile-stat h3 {
-    font-size: 20px;
-  }
-  
-  .profile-stat p {
-    font-size: 12px;
-  }
-  
-  .btn-primary {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-}
-
-/* Very small phones */
-@media (max-width: 375px) {
-  .profile-stats-grid {
-    gap: 15px;
-  }
-  
-  .profile-stat {
-    min-width: 60px;
-  }
-  
-  .profile-stat h3 {
-    font-size: 18px;
-  }
-}
+    .search-friends-input {
+      width: 100%;
+      padding: 12px 20px;
+      background: #121212;
+      border: 1px solid #303030;
+      border-radius: 40px;
+      color: var(--light);
+      font-size: 16px;
+    }
   </style>
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
@@ -1285,6 +1332,9 @@
       </div>
     </div>
 
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
     <!-- Main Content -->
     <div class="main-content">
       <!-- Sidebar -->
@@ -1294,8 +1344,10 @@
             <i class="fas fa-home"></i>
             <span>Home</span>
           </div>
-          
-          
+          <div class="sidebar-item" onclick="switchTab('friends')">
+            <i class="fas fa-user-friends"></i>
+            <span>Friends</span>
+          </div>
         </div>
 
         <div class="sidebar-section">
@@ -1337,47 +1389,55 @@
           </div>
         </div>
 
-        
-      <!-- Profile Tab -->
-<div id="profileTab" class="tab-content" style="display: none;">
-  <div class="profile-header">
-    <button class="profile-edit-btn" onclick="openProfileEdit()">
-      <i class="fas fa-edit"></i> Edit
-    </button>
-    <div style="text-align: center;">
-      <img src="https://ui-avatars.com/api/?name=user&background=0D8ABC&color=fff&size=128&format=svg"
-        class="profile-avatar" id="profileAvatar" onclick="openProfileEdit()">
-      <h1 class="channel-name-large" id="channelName">Channel Name</h1>
-      <p style="color: var(--gray);" id="profileEmail">user@example.com</p>
-      
-      <!-- Follow Section - CENTERED -->
-      <div style="margin: 20px 0; text-align: center;">
-        <button class="btn btn-primary" onclick="followUser('${currentUser.uid}')" id="profileFollowBtn">
-          <i class="fas fa-user-plus"></i> Follow
-        </button>
-        <div style="margin-top: 10px; color: var(--gray);">
-          <i class="fas fa-users"></i> <span id="followerCount">0</span> followers
+        <!-- Friends Tab -->
+        <div id="friendsTab" class="tab-content" style="display: none;">
+          <div class="content-header">
+            <h1>Find Friends</h1>
+            <p style="color: var(--gray);">Follow users to see their posts</p>
+          </div>
+          <div class="friends-search">
+            <input type="text" class="search-friends-input" id="friendsSearchInput" placeholder="Search users..." onkeyup="searchFriends()">
+          </div>
+          <div class="users-grid" id="usersGrid">
+            <!-- Users will load here -->
+            <div class="loader"></div>
+          </div>
         </div>
-      </div>
-      
-      <!-- Stats Grid - IMPROVED FOR MOBILE -->
-      <div class="profile-stats-grid">
-        <div class="profile-stat">
-          <h3 id="postCount">0</h3>
-          <p>Posts</p>
-        </div>
-        <div class="profile-stat">
-          <h3 id="likeCount">0</h3>
-          <p>Likes</p>
-        </div>
-        <div class="profile-stat">
-          <h3 id="coinCount">0</h3>
-          <p>Coins</p>
-        </div>
-      </div>
-    </div>
+
+        <!-- Profile Tab -->
+        <div id="profileTab" class="tab-content" style="display: none;">
+          <div class="profile-header">
+            <button class="profile-edit-btn" onclick="openProfileEdit()">
+              <i class="fas fa-edit"></i> Edit
+            </button>
+            <div>
+              <img src="https://ui-avatars.com/api/?name=user&background=0D8ABC&color=fff&size=128&format=svg"
+                class="profile-avatar" id="profileAvatar" onclick="openProfileEdit()">
+              <h1 class="channel-name-large" id="channelName">Channel Name</h1>
+              <p style="color: var(--gray); text-align: center;" id="profileEmail">user@example.com</p>
+              
+              <!-- Follow button removed from own profile -->
+              
+              <div class="profile-stats">
+                <div class="profile-stat">
+                  <h3 id="postCount">0</h3>
+                  <p>Posts</p>
+                </div>
+                <div class="profile-stat">
+                  <h3 id="likeCount">0</h3>
+                  <p>Likes</p>
+                </div>
+                <div class="profile-stat">
+                  <h3 id="followerCount">0</h3>
+                  <p>Followers</p>
+                </div>
+                <div class="profile-stat">
+                  <h3 id="coinCount">0</h3>
+                  <p>Coins</p>
+                </div>
+              </div>
             </div>
-        
+          </div>
 
           <h2 style="margin-bottom: 20px;">My Posts</h2>
           <div class="posts-grid" id="userPostsGrid">
@@ -1417,8 +1477,10 @@
           <i class="fas fa-home"></i>
           <span>Home</span>
         </button>
-        
-
+        <button class="footer-tab" onclick="switchTab('friends')">
+          <i class="fas fa-user-friends"></i>
+          <span>Friends</span>
+        </button>
         <button class="footer-tab" onclick="openCreatePost()">
           <i class="fas fa-plus-circle"></i>
           <span>Create</span>
@@ -1449,11 +1511,6 @@
       <div class="create-post-body">
         <div class="form-group">
           <textarea id="postText" class="form-input" placeholder="What's on your mind?" rows="4"></textarea>
-        </div>
-
-        <div class="form-group">
-       
-
         </div>
 
         <button onclick="createPost()" class="btn btn-primary btn-block">
@@ -1562,7 +1619,6 @@
             <div class="stat-number" id="referralEarnings">0</div>
             <div class="stat-label">Earned (PKR)</div>
           </div>
-          <!-- Add this in referral-modal-content after referralEarnings stat card -->
           <div class="stat-card">
             <div class="stat-number" id="referralCoins">0</div>
             <div class="stat-label">Earned (Coins)</div>
@@ -1675,6 +1731,7 @@
     let currentPostId = null;
     let chatListener = null;
     let profileImageFile = null;
+    let allUsers = [];
 
     // Show Notification
     function showNotification(message, type = 'info') {
@@ -1689,6 +1746,26 @@
       }, 3000);
     }
 
+    // Toggle Sidebar with overlay
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebarOverlay');
+      
+      sidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
+    }
+
+    // Close sidebar on mobile when clicking outside
+    function closeSidebarOnMobile() {
+      if (window.innerWidth <= 768) {
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+        
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+      }
+    }
+
     // Auth Tab Switching
     function switchAuthTab(tab) {
       document.querySelectorAll('.auth-tab').forEach(t => {
@@ -1700,6 +1777,11 @@
 
       document.querySelector(`[onclick="switchAuthTab('${tab}')"]`).classList.add('active');
       document.getElementById(tab + 'Form').classList.add('active');
+    }
+
+    // Generate Referral Code
+    function generateReferralCode() {
+      return Math.random().toString(36).substring(2, 10).toUpperCase();
     }
 
     // Sign Up User
@@ -1726,16 +1808,11 @@
       }
 
       try {
-        // Create user with email and password
         const userCredential = await auth.createUserWithEmailAndPassword(email, password);
-
-        // Generate unique referral code for new user
         const userReferralCode = generateReferralCode();
 
-        // Check if referral code is provided and valid
         let referrerCode = null;
         if (referralCode) {
-          // Check if referral code exists in database
           const referralCheck = await db.collection('users')
             .where('referralCode', '==', referralCode.toUpperCase())
             .get();
@@ -1748,7 +1825,6 @@
           }
         }
 
-        // Also check URL for referral code
         if (!referrerCode) {
           const urlParams = new URLSearchParams(window.location.search);
           const urlRefCode = urlParams.get('ref');
@@ -1763,7 +1839,6 @@
           }
         }
 
-        // Create user document in Firestore
         await db.collection('users').doc(userCredential.user.uid).set({
           uid: userCredential.user.uid,
           channelName: name,
@@ -1782,7 +1857,6 @@
           updatedAt: firebase.firestore.FieldValue.serverTimestamp()
         });
 
-        // If referred, give bonus to referrer
         if (referrerCode) {
           await handleReferralBonus(referrerCode, userCredential.user.uid);
         }
@@ -1800,15 +1874,9 @@
       }
     }
 
-    // Generate Referral Code
-    function generateReferralCode() {
-      return Math.random().toString(36).substring(2, 10).toUpperCase();
-    }
-
     // Handle Referral Bonus
     async function handleReferralBonus(referrerCode, referredUserId) {
       try {
-        // Find user with this referral code
         const usersSnapshot = await db.collection('users')
           .where('referralCode', '==', referrerCode)
           .get();
@@ -1818,17 +1886,15 @@
           const referrerId = referrerDoc.id;
           const referrerData = referrerDoc.data();
 
-          // Record the referral
           await db.collection('referrals').add({
             referrerId: referrerId,
             referredUserId: referredUserId,
             referrerCode: referrerCode,
             status: 'pending',
-            bonusAmount: 5, // PKR
+            bonusAmount: 5,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
           });
 
-          // Update referrer's stats
           await db.collection('users').doc(referrerId).update({
             referralCount: firebase.firestore.FieldValue.increment(1),
             updatedAt: firebase.firestore.FieldValue.serverTimestamp()
@@ -1879,187 +1945,153 @@
         document.getElementById('appContainer').style.display = 'flex';
         hideAuthModal();
 
-        // Load user data
         await loadUserData();
         switchTab('home');
         setupChatListener();
+        setupPostsListener();
+        setupReferralListener();
+        setupFollowListener();
+        loadAllUsers();
+        
       } else {
         document.getElementById('appContainer').style.display = 'none';
         document.getElementById('authModal').style.display = 'flex';
         if (chatListener) chatListener();
+        if (window.postsListener) window.postsListener();
       }
     });
 
     // Load User Data
-   async function loadUserData() {
-  try {
-    const userDoc = await db.collection('users').doc(currentUser.uid).get();
-    if (userDoc.exists) {
-      const userData = userDoc.data();
+    async function loadUserData() {
+      try {
+        const userDoc = await db.collection('users').doc(currentUser.uid).get();
+        if (userDoc.exists) {
+          const userData = userDoc.data();
 
-      // Update UI
-      document.getElementById('channelName').textContent = userData.channelName || 'Channel Name';
-      document.getElementById('profileEmail').textContent = userData.email;
-      document.getElementById('balance').textContent = (userData.balance || 0).toFixed(4);
-      document.getElementById('coinCount').textContent = (userData.balance || 0).toFixed(4);
+          document.getElementById('channelName').textContent = userData.channelName || 'Channel Name';
+          document.getElementById('profileEmail').textContent = userData.email;
+          document.getElementById('balance').textContent = (userData.balance || 0).toFixed(4);
+          document.getElementById('coinCount').textContent = (userData.balance || 0).toFixed(4);
 
-      // ✅ FOLLOWERS COUNT LOAD KARO
-      const followersSnapshot = await db.collection('followers')
+          const followersSnapshot = await db.collection('followers')
+            .where('followingId', '==', currentUser.uid)
+            .get();
+          
+          document.getElementById('followerCount').textContent = followersSnapshot.size;
+
+          const profileAvatar = document.getElementById('profileAvatar');
+          const editProfileAvatar = document.getElementById('editProfileAvatar');
+          if (userData.profileImage) {
+            profileAvatar.src = userData.profileImage;
+            editProfileAvatar.src = userData.profileImage;
+          }
+
+          document.getElementById('editChannelName').value = userData.channelName || '';
+          document.getElementById('editBio').value = userData.bio || '';
+
+          const postsSnapshot = await db.collection('posts')
+            .where('userId', '==', currentUser.uid)
+            .get();
+          document.getElementById('postCount').textContent = postsSnapshot.size;
+
+          let totalLikes = 0;
+          postsSnapshot.forEach(doc => {
+            totalLikes += doc.data().likes || 0;
+          });
+          document.getElementById('likeCount').textContent = totalLikes;
+
+          await loadReferralStats();
+        }
+      } catch (error) {
+        console.error('Error loading user data:', error);
+      }
+    }
+
+    // Setup Follow Listener
+    function setupFollowListener() {
+      return db.collection('followers')
         .where('followingId', '==', currentUser.uid)
-        .get();
-      
-      document.getElementById('followerCount').textContent = followersSnapshot.size;
-
-      // Set profile image
-      const profileAvatar = document.getElementById('profileAvatar');
-      const editProfileAvatar = document.getElementById('editProfileAvatar');
-      if (userData.profileImage) {
-        profileAvatar.src = userData.profileImage;
-        editProfileAvatar.src = userData.profileImage;
-      }
-
-      // Set channel name in edit form
-      document.getElementById('editChannelName').value = userData.channelName || '';
-      document.getElementById('editBio').value = userData.bio || '';
-
-      // Load user stats
-      const postsSnapshot = await db.collection('posts')
-        .where('userId', '==', currentUser.uid)
-        .get();
-      document.getElementById('postCount').textContent = postsSnapshot.size;
-
-      let totalLikes = 0;
-      postsSnapshot.forEach(doc => {
-        totalLikes += doc.data().likes || 0;
-      });
-      document.getElementById('likeCount').textContent = totalLikes;
-
-      // Load referral stats
-      await loadReferralStats();
+        .onSnapshot((snapshot) => {
+          const followerCountElement = document.getElementById('followerCount');
+          if (followerCountElement) {
+            followerCountElement.textContent = snapshot.size;
+          }
+        });
     }
-  } catch (error) {
-    console.error('Error loading user data:', error);
-  }
-}
-    // =============== FOLLOW SYSTEM ===============
-// Real-time follow listener
-function setupFollowListener() {
-  return db.collection('followers')
-    .where('followingId', '==', currentUser.uid)
-    .onSnapshot((snapshot) => {
-      const followerCountElement = document.getElementById('followerCount');
-      if (followerCountElement) {
-        followerCountElement.textContent = snapshot.size;
-      }
-    });
-}
 
-// Aur auth state listener mein add karo:
-auth.onAuthStateChanged(async (user) => {
-  if (user) {
-    currentUser = user;
-    document.getElementById('appContainer').style.display = 'flex';
-    hideAuthModal();
-
-    await loadUserData();
-    switchTab('home');
-    setupChatListener();
-    setupPostsListener();
-    setupReferralListener();
-    
-    // ✅ YEH LINE ADD KARO
-    setupFollowListener();
-  } else {
-    document.getElementById('appContainer').style.display = 'none';
-    document.getElementById('authModal').style.display = 'flex';
-    if (chatListener) chatListener();
-    if (window.postsListener) window.postsListener();
-  }
-});
     // Follow a user
-   async function followUser(targetUserId) {
-  if (!currentUser || !currentUser.uid) {
-    showNotification('Please login to follow users', 'error');
-    return;
-  }
+    async function followUser(targetUserId) {
+      if (!currentUser || !currentUser.uid) {
+        showNotification('Please login to follow users', 'error');
+        return;
+      }
 
-  if (targetUserId === currentUser.uid) {
-    showNotification('You cannot follow yourself', 'info');
-    return;
-  }
+      if (targetUserId === currentUser.uid) {
+        showNotification('You cannot follow yourself', 'info');
+        return;
+      }
 
-  try {
-    const currentUserId = currentUser.uid;
-    
-    // Check if already following
-    const followCheck = await db.collection('followers')
-      .where('followerId', '==', currentUserId)
-      .where('followingId', '==', targetUserId)
-      .get();
+      try {
+        const currentUserId = currentUser.uid;
+        
+        const followCheck = await db.collection('followers')
+          .where('followerId', '==', currentUserId)
+          .where('followingId', '==', targetUserId)
+          .get();
 
-    if (!followCheck.empty) {
-      showNotification('You are already following this user', 'info');
-      return;
-    }
+        if (!followCheck.empty) {
+          showNotification('You are already following this user', 'info');
+          return;
+        }
 
-    // Create follow relationship
-    await db.collection('followers').add({
-      followerId: currentUserId,
-      followingId: targetUserId,
-      followerName: currentUser.email,
-      followedAt: firebase.firestore.FieldValue.serverTimestamp()
-    });
+        await db.collection('followers').add({
+          followerId: currentUserId,
+          followingId: targetUserId,
+          followerName: currentUser.email,
+          followedAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
 
-    // Add to following collection
-    await db.collection('following').add({
-      userId: currentUserId,
-      followingId: targetUserId,
-      followedAt: firebase.firestore.FieldValue.serverTimestamp()
-    });
+        await db.collection('following').add({
+          userId: currentUserId,
+          followingId: targetUserId,
+          followedAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
 
-    // Give 5 PKR coins to user who got followed
-    const coinsToAdd = 2.5; // 5 PKR = 2.5 coins
-    await db.collection('users').doc(targetUserId).update({
-      balance: firebase.firestore.FieldValue.increment(coinsToAdd),
-      followersCount: firebase.firestore.FieldValue.increment(1), // ✅ YEH LINE IMPORTANT
-      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-    });
+        const coinsToAdd = 2.5;
+        await db.collection('users').doc(targetUserId).update({
+          balance: firebase.firestore.FieldValue.increment(coinsToAdd),
+          followersCount: firebase.firestore.FieldValue.increment(1),
+          updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
 
-    // Record earning
-    await db.collection('follow_earnings').add({
-      userId: targetUserId,
-      followerId: currentUserId,
-      coinsEarned: coinsToAdd,
-      pkrAmount: 5,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    });
+        await db.collection('follow_earnings').add({
+          userId: targetUserId,
+          followerId: currentUserId,
+          coinsEarned: coinsToAdd,
+          pkrAmount: 5,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        });
 
-    // Update UI
-    updateFollowButton(targetUserId, true);
-    
-    // ✅ YEH LINES ADD KARO - Real-time follow count update
-    if (targetUserId === currentUser.uid) {
-      // Agar apne profile par ho toh count update karo
-      const followerCountElement = document.getElementById('followerCount');
-      if (followerCountElement) {
-        const currentCount = parseInt(followerCountElement.textContent) || 0;
-        followerCountElement.textContent = currentCount + 1;
+        updateFollowButtonUI(targetUserId, true);
+        
+        const followerCountElement = document.getElementById('followerCount');
+        if (followerCountElement && targetUserId === currentUser.uid) {
+          const currentCount = parseInt(followerCountElement.textContent) || 0;
+          followerCountElement.textContent = currentCount + 1;
+        }
+        
+        showNotification(`Followed successfully! User earned 5 PKR (2.5 coins)`, 'success');
+
+      } catch (error) {
+        console.error('Follow error:', error);
+        showNotification('Error following user: ' + error.message, 'error');
       }
     }
-    
-    showNotification(`Followed successfully! User earned 5 PKR (2.5 coins)`, 'success');
 
-  } catch (error) {
-    console.error('Follow error:', error);
-    showNotification('Error following user: ' + error.message, 'error');
-  }
-}
-
-    // Update follow button state
-    function updateFollowButton(targetUserId, isFollowing) {
+    // Update follow button UI
+    function updateFollowButtonUI(targetUserId, isFollowing) {
+      // Update in posts
       const followBtn = document.getElementById(`followBtn${targetUserId}`);
-      const profileFollowBtn = document.getElementById('profileFollowBtn');
-
       if (followBtn) {
         if (isFollowing) {
           followBtn.classList.add('following');
@@ -2070,10 +2102,15 @@ auth.onAuthStateChanged(async (user) => {
         }
       }
 
-      if (profileFollowBtn && targetUserId === currentUser.uid) {
+      // Update in friends list
+      const userFollowBtn = document.getElementById(`userFollowBtn${targetUserId}`);
+      if (userFollowBtn) {
         if (isFollowing) {
-          profileFollowBtn.innerHTML = '<i class="fas fa-check"></i> Following';
-          profileFollowBtn.disabled = true;
+          userFollowBtn.classList.add('following');
+          userFollowBtn.innerHTML = '<i class="fas fa-check"></i> Following';
+        } else {
+          userFollowBtn.classList.remove('following');
+          userFollowBtn.innerHTML = '<i class="fas fa-user-plus"></i> Follow';
         }
       }
     }
@@ -2094,91 +2131,104 @@ auth.onAuthStateChanged(async (user) => {
       }
     }
 
-    // Load user's follower count
-    async function loadFollowerCount(userId) {
+    // Load all users for friends tab
+    async function loadAllUsers() {
       try {
-        const followersSnapshot = await db.collection('followers')
-          .where('followingId', '==', userId)
+        const usersGrid = document.getElementById('usersGrid');
+        usersGrid.innerHTML = '<div class="loader"></div>';
+
+        const querySnapshot = await db.collection('users')
+          .where('uid', '!=', currentUser.uid)
+          .limit(50)
           .get();
 
-        const followerCountElement = document.getElementById('followerCount');
-        if (followerCountElement) {
-          followerCountElement.textContent = followersSnapshot.size;
-        }
-
-        return followersSnapshot.size;
-      } catch (error) {
-        return 0;
-      }
-    }
-
-    // Load user's following count
-    async function loadFollowingCount(userId) {
-      try {
-        const followingSnapshot = await db.collection('following')
-          .where('userId', '==', userId)
-          .get();
-
-        return followingSnapshot.size;
-      } catch (error) {
-        return 0;
-      }
-    }
-
-    // Update post cards with follow buttons
-    async function updatePostFollowButtons() {
-      try {
-        const posts = document.querySelectorAll('.video-card');
-        posts.forEach(async (post) => {
-          // Extract userId from post data or button
-          const followBtn = post.querySelector('.follow-btn');
-          if (followBtn) {
-            const targetUserId = followBtn.getAttribute('onclick').match(/'([^']+)'/)[1];
-            const isFollowing = await checkIfFollowing(targetUserId);
-            updateFollowButton(targetUserId, isFollowing);
-          }
+        allUsers = [];
+        querySnapshot.forEach(doc => {
+          allUsers.push({ id: doc.id, ...doc.data() });
         });
+
+        displayUsers(allUsers);
       } catch (error) {
-        console.error('Error updating follow buttons:', error);
+        console.error('Error loading users:', error);
+        usersGrid.innerHTML = '<p style="text-align: center; color: var(--gray);">Error loading users</p>';
       }
     }
 
-    // Load user profile stats
-    async function loadUserProfileStats() {
-      if (!currentUser || !currentUser.uid) return;
+    // Display users in friends tab
+    async function displayUsers(users) {
+      const usersGrid = document.getElementById('usersGrid');
+      usersGrid.innerHTML = '';
 
-      try {
-        // Load follower count
-        const followerCount = await loadFollowerCount(currentUser.uid);
+      if (users.length === 0) {
+        usersGrid.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 40px;">No users found</p>';
+        return;
+      }
 
-        // Load following count
-        const followingCount = await loadFollowingCount(currentUser.uid);
-
-        // Update UI
-        document.getElementById('followerCount').textContent = followerCount;
-
-        // Add following count display if needed
-        const statsSection = document.querySelector('.profile-header');
-        if (statsSection && !document.getElementById('followingCount')) {
-          statsSection.innerHTML += `
-        <div style="text-align: center;">
-          <h3>${followingCount}</h3>
-          <p style="color: var(--gray);">Following</p>
-        </div>
-      `;
-        }
-      } catch (error) {
-        console.error('Error loading profile stats:', error);
+      for (const user of users) {
+        const isFollowing = await checkIfFollowing(user.id);
+        
+        const userElement = document.createElement('div');
+        userElement.className = 'user-card';
+        userElement.innerHTML = `
+          <img src="${user.profileImage || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + user.email}" 
+               class="user-avatar" alt="${user.channelName}">
+          <div class="user-info">
+            <div class="user-name">${user.channelName}</div>
+            <div class="user-email">${user.email}</div>
+            <div class="user-stats">
+              <span><i class="fas fa-newspaper"></i> ${user.postsCount || 0} posts</span>
+              <span><i class="fas fa-coins"></i> ${(user.balance || 0).toFixed(4)} coins</span>
+            </div>
+          </div>
+          <button class="follow-btn-user ${isFollowing ? 'following' : ''}" 
+                  id="userFollowBtn${user.id}" 
+                  onclick="followUser('${user.id}')">
+            <i class="fas ${isFollowing ? 'fa-check' : 'fa-user-plus'}"></i> ${isFollowing ? 'Following' : 'Follow'}
+          </button>
+        `;
+        usersGrid.appendChild(userElement);
       }
     }
 
-    // Add follow button to each post in loadPosts function
+    // Search friends
+    function searchFriends() {
+      const searchTerm = document.getElementById('friendsSearchInput').value.toLowerCase();
+      
+      if (!searchTerm) {
+        displayUsers(allUsers);
+        return;
+      }
 
-    // Load Referral Stats
+      const filteredUsers = allUsers.filter(user => 
+        user.channelName.toLowerCase().includes(searchTerm) || 
+        user.email.toLowerCase().includes(searchTerm)
+      );
+
+      displayUsers(filteredUsers);
+    }
+
+    // Load Referral Stats - FIXED VERSION
     async function loadReferralStats() {
       try {
         const userDoc = await db.collection('users').doc(currentUser.uid).get();
+        
+        if (!userDoc.exists) {
+          console.error('User document not found');
+          return;
+        }
+        
         const userData = userDoc.data();
+
+        // Check if referralCode exists
+        if (!userData.referralCode) {
+          // Generate a new referral code if missing
+          const newReferralCode = generateReferralCode();
+          await db.collection('users').doc(currentUser.uid).update({
+            referralCode: newReferralCode,
+            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+          });
+          userData.referralCode = newReferralCode;
+        }
 
         // Display referral code
         document.getElementById('referralCodeDisplay').value = userData.referralCode || '';
@@ -2193,7 +2243,8 @@ auth.onAuthStateChanged(async (user) => {
           .where('status', '==', 'approved')
           .get();
 
-        const totalEarnings = referralsSnapshot.size * 5;
+        const totalEarningsPKR = referralsSnapshot.size * 5;
+        const totalCoinsFromReferrals = referralsSnapshot.size * 2.5;
 
         // Count pending referrals
         const pendingSnapshot = await db.collection('referrals')
@@ -2203,14 +2254,19 @@ auth.onAuthStateChanged(async (user) => {
 
         // Update UI
         document.getElementById('referralCount').textContent = referralsSnapshot.size;
-        document.getElementById('referralEarnings').textContent = totalEarnings;
+        document.getElementById('referralEarnings').textContent = totalEarningsPKR;
         document.getElementById('pendingReferrals').textContent = pendingSnapshot.size;
 
-        // Load referrals list
+        const referralCoinsElement = document.getElementById('referralCoins');
+        if (referralCoinsElement) {
+          referralCoinsElement.textContent = totalCoinsFromReferrals.toFixed(4);
+        }
+
         await loadReferralsList();
 
       } catch (error) {
         console.error('Error loading referral stats:', error);
+        showNotification('Error loading referral stats', 'error');
       }
     }
 
@@ -2237,21 +2293,21 @@ auth.onAuthStateChanged(async (user) => {
             referral.status === 'pending' ? 'status-pending' : 'status-rejected';
 
           referralsList.innerHTML += `
-                        <div style="background: var(--hover-bg); padding: 10px; border-radius: 5px; margin-bottom: 5px;">
-                            <div style="display: flex; justify-content: space-between; align-items: center;">
-                                <div>
-                                    <div style="font-size: 12px; color: var(--gray);">User ID: ${referral.referredUserId.substring(0, 8)}...</div>
-                                    <div style="font-size: 10px; color: var(--gray);">
-                                        ${formatTime(referral.createdAt?.toDate())}
-                                    </div>
-                                </div>
-                                <div style="display: flex; align-items: center; gap: 10px;">
-                                    <span class="${statusClass}" style="font-size: 10px; padding: 2px 8px;">${referral.status}</span>
-                                    <span style="font-size: 12px; color: var(--primary);">${referral.bonusAmount} PKR</span>
-                                </div>
-                            </div>
-                        </div>
-                    `;
+            <div style="background: var(--hover-bg); padding: 10px; border-radius: 5px; margin-bottom: 5px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div style="font-size: 12px; color: var(--gray);">User ID: ${referral.referredUserId.substring(0, 8)}...</div>
+                  <div style="font-size: 10px; color: var(--gray);">
+                    ${formatTime(referral.createdAt?.toDate())}
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span class="${statusClass}" style="font-size: 10px; padding: 2px 8px;">${referral.status}</span>
+                  <span style="font-size: 12px; color: var(--primary);">${referral.bonusAmount} PKR</span>
+                </div>
+              </div>
+            </div>
+          `;
         });
       } catch (error) {
         console.error('Error loading referrals list:', error);
@@ -2291,16 +2347,18 @@ auth.onAuthStateChanged(async (user) => {
 
       // Load tab content
       if (tabName === 'home') loadPosts();
-      
-     
+      if (tabName === 'friends') loadAllUsers();
       if (tabName === 'profile') loadUserPosts();
       if (tabName === 'chat') loadMessages();
+
+      // Close sidebar on mobile
+      closeSidebarOnMobile();
     }
 
     // Create Post Functions
     function openCreatePost() {
       document.getElementById('createPostModal').style.display = 'flex';
-     
+      closeSidebarOnMobile();
     }
 
     function closeCreatePost() {
@@ -2311,18 +2369,18 @@ auth.onAuthStateChanged(async (user) => {
     // Create Post
     async function createPost() {
       const text = document.getElementById('postText').value;
-      
 
-      
+      if (!text.trim()) {
+        showNotification('Please enter post text', 'error');
+        return;
+      }
 
       try {
-        // Get user data for channel name
         const userDoc = await db.collection('users').doc(currentUser.uid).get();
         const userData = userDoc.data();
 
         await db.collection('posts').add({
           text: text,
-          
           userId: currentUser.uid,
           channelName: userData.channelName,
           channelImage: userData.profileImage,
@@ -2334,7 +2392,6 @@ auth.onAuthStateChanged(async (user) => {
           createdAt: firebase.firestore.FieldValue.serverTimestamp()
         });
 
-        // Update user's post count
         await db.collection('users').doc(currentUser.uid).update({
           postsCount: firebase.firestore.FieldValue.increment(1),
           updatedAt: firebase.firestore.FieldValue.serverTimestamp()
@@ -2354,7 +2411,6 @@ auth.onAuthStateChanged(async (user) => {
         const postsGrid = document.getElementById('postsGrid');
         postsGrid.innerHTML = '<div class="loader"></div>';
 
-        // Get posts
         const querySnapshot = await db.collection('posts')
           .orderBy('createdAt', 'desc')
           .limit(20)
@@ -2365,10 +2421,7 @@ auth.onAuthStateChanged(async (user) => {
           return;
         }
 
-        // Get all post IDs for comments count
         const postIds = querySnapshot.docs.map(doc => doc.id);
-
-        // Get comments count for each post
         const commentsPromises = postIds.map(postId =>
           db.collection('comments')
             .where('postId', '==', postId)
@@ -2385,69 +2438,117 @@ auth.onAuthStateChanged(async (user) => {
           commentsMap[result.postId] = result.count;
         });
 
-     // Clear loader and render posts
-postsGrid.innerHTML = '';
+        postsGrid.innerHTML = '';
 
-querySnapshot.forEach(doc => {
-  const post = doc.data();
-  const postId = doc.id;
-  const isLiked = post.likedBy?.includes(currentUser?.uid) || false;
-  const commentsCount = commentsMap[postId] || 0;
+        for (const doc of querySnapshot.docs) {
+          const post = doc.data();
+          const postId = doc.id;
+          const isLiked = post.likedBy?.includes(currentUser?.uid) || false;
+          const commentsCount = commentsMap[postId] || 0;
+          const isFollowing = await checkIfFollowing(post.userId);
 
-  const postElement = document.createElement('div');
-  postElement.className = 'video-card';
-  postElement.innerHTML = `
-    <div class="thumbnail-container">
-      <div class="channel-info">
-        <img src="${post.channelImage || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + post.userEmail}" 
-             class="channel-avatar"
-             alt="${post.channelName}">
-        <span class="channel-name">${post.channelName}</span>
-        <button class="action-btn follow-btn" onclick="followUser('${post.userId}')" 
-                id="followBtn${post.userId}">
-          <span>Follow</span>
-        </button>
-        <span>${formatTime(post.createdAt?.toDate())}</span>
-      </div>
-      <div class="no-thumbnail">
-        <div class="video-title">
-          ${post.text || 'No text content'}
-        </div>
-        <div class="video-meta"></div>
-      </div>
-    </div>
-    <div class="video-info">
-      <div class="post-actions">
-        <button class="action-btn like-btn ${isLiked ? 'liked' : ''}" 
-                onclick="likePost('${postId}')">
-          <i class="fas fa-heart"></i>
-          <span>${post.likes || 0}</span>
-        </button>
-        <button class="action-btn" onclick="openComments('${postId}')">
-          <i class="fas fa-comment"></i>
-          <span>${commentsCount}</span>
-        </button>
-        <button class="action-btn" onclick="sharePost('${postId}')">
-          <i class="fas fa-share"></i>
-          <span>${post.shares || 0}</span>
-        </button>
-      </div>
-    </div>
-  `;
-  postsGrid.appendChild(postElement);
-});
-  
+          const postElement = document.createElement('div');
+          postElement.className = 'video-card';
+          postElement.innerHTML = `
+            <div class="thumbnail-container">
+              <div class="channel-info">
+                <img src="${post.channelImage || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + post.userEmail}" 
+                     class="channel-avatar"
+                     alt="${post.channelName}">
+                <span class="channel-name">${post.channelName}</span>
+                ${post.userId !== currentUser.uid ? 
+                  `<button class="action-btn follow-btn ${isFollowing ? 'following' : ''}" 
+                          onclick="followUser('${post.userId}')" 
+                          id="followBtn${post.userId}">
+                    <span>${isFollowing ? 'Following' : 'Follow'}</span>
+                  </button>` : 
+                  ''
+                }
+                <span style="margin-left: auto; font-size: 12px; color: var(--gray);">
+                  ${formatTime(post.createdAt?.toDate())}
+                </span>
+              </div>
+              <div class="no-thumbnail">
+                <div class="video-title">
+                  ${post.text || 'No text content'}
+                </div>
+                <div class="video-meta"></div>
+              </div>
+            </div>
+            <div class="video-info">
+              <div class="post-actions">
+                <button class="action-btn like-btn ${isLiked ? 'liked' : ''}" 
+                        onclick="likePost('${postId}')">
+                  <i class="fas fa-heart"></i>
+                  <span>${post.likes || 0}</span>
+                </button>
+                <button class="action-btn" onclick="openComments('${postId}')">
+                  <i class="fas fa-comment"></i>
+                  <span>${commentsCount}</span>
+                </button>
+                <button class="action-btn" onclick="sharePost('${postId}')">
+                  <i class="fas fa-share"></i>
+                  <span>${post.shares || 0}</span>
+                </button>
+              </div>
+            </div>
+          `;
+          postsGrid.appendChild(postElement);
+        }
       } catch (error) {
         console.error('Error loading posts:', error);
         postsGrid.innerHTML = '<p style="text-align: center; color: red;">Error loading posts</p>';
       }
     }
 
+    // Setup Posts Listener
+    function setupPostsListener() {
+      if (window.postsListener) {
+        window.postsListener();
+      }
+      
+      window.postsListener = db.collection('posts')
+        .orderBy('createdAt', 'desc')
+        .limit(20)
+        .onSnapshot((snapshot) => {
+          updatePostsRealTime(snapshot);
+        });
+    }
+
+    // Update Posts Real Time
+    async function updatePostsRealTime(snapshot) {
+      try {
+        const changes = snapshot.docChanges();
+        
+        for (const change of changes) {
+          if (change.type === 'modified') {
+            const postId = change.doc.id;
+            const updatedPost = change.doc.data();
+            
+            const likeBtn = document.querySelector(`[onclick="likePost('${postId}')"]`);
+            if (likeBtn) {
+              const likeCountSpan = likeBtn.querySelector('span');
+              if (likeCountSpan) {
+                likeCountSpan.textContent = updatedPost.likes || 0;
+              }
+              
+              const isLiked = updatedPost.likedBy?.includes(currentUser?.uid) || false;
+              if (isLiked) {
+                likeBtn.classList.add('liked');
+              } else {
+                likeBtn.classList.remove('liked');
+              }
+            }
+          }
+        }
+      } catch (error) {
+        console.error('Real-time update error:', error);
+      }
+    }
+
     // Like Post
-    // Update likePost function in index.html
     async function likePost(postId) {
       try {
-        // Check if user is logged in
         if (!currentUser || !currentUser.uid) {
           showNotification('Please login to like posts', 'error');
           return;
@@ -2462,29 +2563,32 @@ querySnapshot.forEach(doc => {
         }
 
         const post = postDoc.data();
-
-        // Check if post has likedBy array
         const likedBy = post.likedBy || [];
 
-        // Check if already liked
         if (likedBy.includes(currentUser.uid)) {
           showNotification('You already liked this post', 'info');
           return;
         }
 
-        // Check if user is trying to like their own post
         if (post.userId === currentUser.uid) {
           showNotification('You cannot like your own post', 'info');
           return;
         }
 
-        // Update post likes
+        const likeBtn = document.querySelector(`[onclick="likePost('${postId}')"]`);
+        if (likeBtn) {
+          const likeCountSpan = likeBtn.querySelector('span');
+          if (likeCountSpan) {
+            likeCountSpan.textContent = (parseInt(likeCountSpan.textContent) || 0) + 1;
+          }
+          likeBtn.classList.add('liked');
+        }
+
         await postRef.update({
           likes: (post.likes || 0) + 1,
           likedBy: firebase.firestore.FieldValue.arrayUnion(currentUser.uid)
         });
 
-        // Give coins to post owner
         if (post.userId) {
           await db.collection('users').doc(post.userId).update({
             balance: firebase.firestore.FieldValue.increment(0.0001),
@@ -2492,7 +2596,6 @@ querySnapshot.forEach(doc => {
           });
         }
 
-        // Create like tracking
         await db.collection('likes').add({
           postId: postId,
           postOwnerId: post.userId,
@@ -2501,200 +2604,31 @@ querySnapshot.forEach(doc => {
           timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
 
-        // Update UI
-        loadPosts();
-        if (currentUser) loadUserData();
+        const balanceElement = document.getElementById('balance');
+        if (balanceElement) {
+          balanceElement.style.transform = 'scale(1.1)';
+          setTimeout(() => {
+            balanceElement.style.transform = 'scale(1)';
+          }, 300);
+        }
 
         showNotification(`Post liked! ${post.channelName} earned 0.0001 coins!`, 'success');
 
       } catch (error) {
-        console.error('Like error details:', error);
-
-        if (error.code === 'permission-denied') {
-          showNotification('Permission denied. Please check Firestore rules.', 'error');
-        } else if (error.code === 'unavailable') {
-          showNotification('Network error. Please check your connection.', 'error');
-        } else {
-          showNotification('Error liking post: ' + error.message, 'error');
-        }
-      }
-    }
-// Real-time post updates without page reload
-function setupPostsListener() {
-  // Remove existing listener if any
-  if (window.postsListener) {
-    window.postsListener();
-  }
-  
-  // Setup real-time listener for posts
-  window.postsListener = db.collection('posts')
-    .orderBy('createdAt', 'desc')
-    .limit(20)
-    .onSnapshot((snapshot) => {
-      updatePostsRealTime(snapshot);
-    });
-}
-
-// Update only changed posts
-async function updatePostsRealTime(snapshot) {
-  try {
-    const changes = snapshot.docChanges();
-    
-    changes.forEach(async (change) => {
-      if (change.type === 'modified') {
-        const postId = change.doc.id;
-        const updatedPost = change.doc.data();
+        console.error('Like error:', error);
+        showNotification('Error liking post', 'error');
         
-        // Update likes count
         const likeBtn = document.querySelector(`[onclick="likePost('${postId}')"]`);
         if (likeBtn) {
           const likeCountSpan = likeBtn.querySelector('span');
           if (likeCountSpan) {
-            likeCountSpan.textContent = updatedPost.likes || 0;
+            likeCountSpan.textContent = Math.max(0, (parseInt(likeCountSpan.textContent) || 0) - 1);
           }
-          
-          // Update liked state
-          const isLiked = updatedPost.likedBy?.includes(currentUser?.uid) || false;
-          if (isLiked) {
-            likeBtn.classList.add('liked');
-          } else {
-            likeBtn.classList.remove('liked');
-          }
-        }
-        
-        // Update comments count
-        const commentsBtn = document.querySelector(`[onclick="openComments('${postId}')"]`);
-        if (commentsBtn) {
-          // Get fresh comments count
-          const commentsSnapshot = await db.collection('comments')
-            .where('postId', '==', postId)
-            .get();
-          
-          const commentCountSpan = commentsBtn.querySelector('span');
-          if (commentCountSpan) {
-            commentCountSpan.textContent = commentsSnapshot.size;
-          }
+          likeBtn.classList.remove('liked');
         }
       }
-    });
-  } catch (error) {
-    console.error('Real-time update error:', error);
-  }
-}
-
-// Update likePost function
-async function likePost(postId) {
-  try {
-    if (!currentUser || !currentUser.uid) {
-      showNotification('Please login to like posts', 'error');
-      return;
     }
 
-    const postRef = db.collection('posts').doc(postId);
-    const postDoc = await postRef.get();
-
-    if (!postDoc.exists) {
-      showNotification('Post not found', 'error');
-      return;
-    }
-
-    const post = postDoc.data();
-    const likedBy = post.likedBy || [];
-
-    if (likedBy.includes(currentUser.uid)) {
-      showNotification('You already liked this post', 'info');
-      return;
-    }
-
-    if (post.userId === currentUser.uid) {
-      showNotification('You cannot like your own post', 'info');
-      return;
-    }
-
-    // Optimistic update (UI pehle update)
-    const likeBtn = document.querySelector(`[onclick="likePost('${postId}')"]`);
-    if (likeBtn) {
-      const likeCountSpan = likeBtn.querySelector('span');
-      if (likeCountSpan) {
-        likeCountSpan.textContent = (parseInt(likeCountSpan.textContent) || 0) + 1;
-      }
-      likeBtn.classList.add('liked');
-    }
-
-    // Firebase update
-    await postRef.update({
-      likes: (post.likes || 0) + 1,
-      likedBy: firebase.firestore.FieldValue.arrayUnion(currentUser.uid)
-    });
-
-    if (post.userId) {
-      await db.collection('users').doc(post.userId).update({
-        balance: firebase.firestore.FieldValue.increment(0.0001),
-        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-      });
-    }
-
-    await db.collection('likes').add({
-      postId: postId,
-      postOwnerId: post.userId,
-      likerId: currentUser.uid,
-      coinsEarned: 0.0001,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    });
-
-    // Update user balance UI without reload
-    if (currentUser) {
-      const balanceElement = document.getElementById('balance');
-      if (balanceElement) {
-        // Small animation for balance update
-        balanceElement.style.transform = 'scale(1.1)';
-        setTimeout(() => {
-          balanceElement.style.transform = 'scale(1)';
-        }, 300);
-      }
-    }
-
-    showNotification(`Post liked! ${post.channelName} earned 0.0001 coins!`, 'success');
-
-  } catch (error) {
-    console.error('Like error:', error);
-    showNotification('Error liking post', 'error');
-    
-    // Revert optimistic update on error
-    const likeBtn = document.querySelector(`[onclick="likePost('${postId}')"]`);
-    if (likeBtn) {
-      const likeCountSpan = likeBtn.querySelector('span');
-      if (likeCountSpan) {
-        likeCountSpan.textContent = Math.max(0, (parseInt(likeCountSpan.textContent) || 0) - 1);
-      }
-      likeBtn.classList.remove('liked');
-    }
-  }
-}
-
-// Aur auth state listener mein add karo
-auth.onAuthStateChanged(async (user) => {
-  if (user) {
-    currentUser = user;
-    document.getElementById('appContainer').style.display = 'flex';
-    hideAuthModal();
-
-    await loadUserData();
-    switchTab('home');
-    setupChatListener();
-    
-    // ✅ YEH LINE ADD KARO
-    setupPostsListener();
-    
-    setupReferralListener();
-
-  } else {
-    document.getElementById('appContainer').style.display = 'none';
-    document.getElementById('authModal').style.display = 'flex';
-    if (chatListener) chatListener();
-    if (window.postsListener) window.postsListener();
-  }
-});
     // Comments System
     function openComments(postId) {
       currentPostId = postId;
@@ -2707,8 +2641,6 @@ auth.onAuthStateChanged(async (user) => {
       document.getElementById('commentInput').value = '';
     }
 
-
-    // In index.html - UPDATE COMMENT FUNCTION:
     async function addComment() {
       const text = document.getElementById('commentInput').value.trim();
 
@@ -2728,15 +2660,12 @@ auth.onAuthStateChanged(async (user) => {
       }
 
       try {
-        // Get user data
         const userDoc = await db.collection('users').doc(currentUser.uid).get();
         const userData = userDoc.data();
 
-        // Get post data
         const postDoc = await db.collection('posts').doc(currentPostId).get();
         const post = postDoc.data();
 
-        // Create comment
         await db.collection('comments').add({
           postId: currentPostId,
           text: text,
@@ -2747,7 +2676,6 @@ auth.onAuthStateChanged(async (user) => {
           timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
 
-        // Give coins to post owner
         if (post.userId) {
           await db.collection('users').doc(post.userId).update({
             balance: firebase.firestore.FieldValue.increment(0.001),
@@ -2763,15 +2691,10 @@ auth.onAuthStateChanged(async (user) => {
         showNotification('Comment added! Post owner earned 0.001 coins!', 'success');
       } catch (error) {
         console.error('Comment error details:', error);
-
-        if (error.code === 'permission-denied') {
-          showNotification('Permission denied. Cannot add comment.', 'error');
-        } else {
-          showNotification('Error adding comment: ' + error.message, 'error');
-        }
+        showNotification('Error adding comment: ' + error.message, 'error');
       }
     }
-    // Update loadComments function:
+
     async function loadComments(postId) {
       try {
         const querySnapshot = await db.collection('comments')
@@ -2790,20 +2713,20 @@ auth.onAuthStateChanged(async (user) => {
         querySnapshot.forEach(doc => {
           const comment = doc.data();
           commentList.innerHTML += `
-        <div class="comment-item">
-          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
-            <img src="${comment.userImage || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + comment.userEmail}" 
-                 style="width: 30px; height: 30px; border-radius: 50%;">
-            <div>
-              <div style="font-weight: bold;">${comment.channelName}</div>
-              <div style="color: var(--gray); font-size: 12px;">
-                ${formatTime(comment.timestamp?.toDate())}
+            <div class="comment-item">
+              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
+                <img src="${comment.userImage || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + comment.userEmail}" 
+                     style="width: 30px; height: 30px; border-radius: 50%;">
+                <div>
+                  <div style="font-weight: bold;">${comment.channelName}</div>
+                  <div style="color: var(--gray); font-size: 12px;">
+                    ${formatTime(comment.timestamp?.toDate())}
+                  </div>
+                </div>
               </div>
+              <div style="color: var(--light); padding-left: 40px;">${comment.text}</div>
             </div>
-          </div>
-          <div style="color: var(--light); padding-left: 40px;">${comment.text}</div>
-        </div>
-      `;
+          `;
         });
       } catch (error) {
         console.error('Error loading comments:', error);
@@ -2828,18 +2751,15 @@ auth.onAuthStateChanged(async (user) => {
 
         const post = postDoc.data();
 
-        // Check if user is sharing their own post
         if (post.userId === currentUser.uid) {
           showNotification('Sharing your own post does not earn coins', 'info');
           return;
         }
 
-        // Update shares count
         await postRef.update({
           shares: (post.shares || 0) + 1
         });
 
-        // Give coins to post owner
         if (post.userId) {
           await db.collection('users').doc(post.userId).update({
             balance: firebase.firestore.FieldValue.increment(0.001),
@@ -2847,7 +2767,6 @@ auth.onAuthStateChanged(async (user) => {
           });
         }
 
-        // Create share tracking
         await db.collection('shares').add({
           postId: postId,
           postOwnerId: post.userId,
@@ -2856,13 +2775,11 @@ auth.onAuthStateChanged(async (user) => {
           timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
 
-        // Update UI
         loadPosts();
         if (currentUser) loadUserData();
 
         showNotification(`Post shared! ${post.channelName} earned 0.001 coins!`, 'success');
 
-        // Copy share link
         const shareLink = `https://alidevtech-code.github.io/EarnTube/?ref=${currentUser.uid.substring(0, 8)}`;
         navigator.clipboard.writeText(shareLink)
           .then(() => showNotification('Share link copied to clipboard!', 'info'))
@@ -2870,113 +2787,101 @@ auth.onAuthStateChanged(async (user) => {
 
       } catch (error) {
         console.error('Share error details:', error);
-
-        if (error.code === 'permission-denied') {
-          showNotification('Permission denied. Cannot share post.', 'error');
-        } else {
-          showNotification('Error sharing post: ' + error.message, 'error');
-        }
+        showNotification('Error sharing post: ' + error.message, 'error');
       }
     }
 
-    
-    
-
     // Load User Posts
- async function loadUserPosts() {
-  try {
-    const querySnapshot = await db.collection('posts')
-      .where('userId', '==', currentUser.uid)
-      .orderBy('createdAt', 'desc')
-      .limit(20)
-      .get();
+    async function loadUserPosts() {
+      try {
+        const querySnapshot = await db.collection('posts')
+          .where('userId', '==', currentUser.uid)
+          .orderBy('createdAt', 'desc')
+          .limit(20)
+          .get();
 
-    const userPostsGrid = document.getElementById('userPostsGrid');
-    userPostsGrid.innerHTML = '';
+        const userPostsGrid = document.getElementById('userPostsGrid');
+        userPostsGrid.innerHTML = '';
 
-    if (querySnapshot.empty) {
-      userPostsGrid.innerHTML = '<p style="text-align: center; color: var(--gray);">You haven\'t created any posts yet.</p>';
-      return;
+        if (querySnapshot.empty) {
+          userPostsGrid.innerHTML = '<p style="text-align: center; color: var(--gray);">You haven\'t created any posts yet.</p>';
+          return;
+        }
+
+        const postIds = querySnapshot.docs.map(doc => doc.id);
+        const commentsPromises = postIds.map(postId => 
+          db.collection('comments')
+            .where('postId', '==', postId)
+            .get()
+            .then(snapshot => ({
+              postId: postId,
+              count: snapshot.size
+            }))
+        );
+        
+        const commentsResults = await Promise.all(commentsPromises);
+        const commentsMap = {};
+        commentsResults.forEach(result => {
+          commentsMap[result.postId] = result.count;
+        });
+
+        querySnapshot.forEach(doc => {
+          const post = doc.data();
+          const postId = doc.id;
+          const isLiked = post.likedBy?.includes(currentUser?.uid) || false;
+          const commentsCount = commentsMap[postId] || 0;
+
+          const postElement = document.createElement('div');
+          postElement.className = 'video-card';
+          postElement.innerHTML = `
+            <div class="thumbnail-container">
+              <div class="channel-info">
+                <img src="${post.channelImage || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + post.userEmail}" 
+                     class="channel-avatar"
+                     alt="${post.channelName}">
+                <span class="channel-name">${post.channelName}</span>
+                <span style="margin-left: auto; font-size: 12px; color: var(--gray);">
+                  ${formatTime(post.createdAt?.toDate())}
+                </span>
+              </div>
+              <div class="no-thumbnail">
+                <div class="video-title">
+                  ${post.text || 'No text content'}
+                </div>
+                <div class="video-meta"></div>
+              </div>
+            </div>
+            <div class="video-info">
+              <div class="post-actions">
+                <button class="action-btn like-btn ${isLiked ? 'liked' : ''}" 
+                        onclick="likePost('${postId}')">
+                  <i class="fas fa-heart"></i>
+                  <span>${post.likes || 0}</span>
+                </button>
+                <button class="action-btn" onclick="openComments('${postId}')">
+                  <i class="fas fa-comment"></i>
+                  <span>${commentsCount}</span>
+                </button>
+                <button class="action-btn" onclick="sharePost('${postId}')">
+                  <i class="fas fa-share"></i>
+                  <span>${post.shares || 0}</span>
+                </button>
+              </div>
+            </div>
+          `;
+          userPostsGrid.appendChild(postElement);
+        });
+      } catch (error) {
+        console.error('Error loading user posts:', error);
+      }
     }
 
-    // Get comments count for each post
-    const postIds = querySnapshot.docs.map(doc => doc.id);
-    const commentsPromises = postIds.map(postId => 
-      db.collection('comments')
-        .where('postId', '==', postId)
-        .get()
-        .then(snapshot => ({
-          postId: postId,
-          count: snapshot.size
-        }))
-    );
-    
-    const commentsResults = await Promise.all(commentsPromises);
-    const commentsMap = {};
-    commentsResults.forEach(result => {
-      commentsMap[result.postId] = result.count;
-    });
-
-    querySnapshot.forEach(doc => {
-      const post = doc.data();
-      const postId = doc.id;
-      const isLiked = post.likedBy?.includes(currentUser?.uid) || false;
-      const commentsCount = commentsMap[postId] || 0;
-
-      const postElement = document.createElement('div');
-      postElement.className = 'video-card';
-      postElement.innerHTML = `
-        <div class="thumbnail-container">
-          <div class="channel-info">
-            <img src="${post.channelImage || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + post.userEmail}" 
-                 class="channel-avatar"
-                 alt="${post.channelName}">
-            <span class="channel-name">${post.channelName}</span>
-            <button class="action-btn follow-btn" onclick="followUser('${post.userId}')" 
-                    id="followBtn${post.userId}">
-              <span>Follow</span>
-            </button>
-            <span>${formatTime(post.createdAt?.toDate())}</span>
-          </div>
-          ${post.imageUrl ?
-            `<img src="${post.imageUrl}" class="post-thumbnail" alt="Post Image" onerror="this.src='https://via.placeholder.com/300x180/333333/666666?text=Image+Error'">` :
-            `<div class="no-thumbnail">
-              <div class="video-title">
-                ${post.text || 'No text content'}
-              </div>
-              <div class="video-meta"></div>
-            </div>`
-          }
-        </div>
-        <div class="video-info">
-          <div class="post-actions">
-            <button class="action-btn like-btn ${isLiked ? 'liked' : ''}" 
-                    onclick="likePost('${postId}')">
-              <i class="fas fa-heart"></i>
-              <span>${post.likes || 0}</span>
-            </button>
-            <button class="action-btn" onclick="openComments('${postId}')">
-              <i class="fas fa-comment"></i>
-              <span>${commentsCount}</span>
-            </button>
-            <button class="action-btn" onclick="sharePost('${postId}')">
-              <i class="fas fa-share"></i>
-              <span>${post.shares || 0}</span>
-            </button>
-          </div>
-        </div>
-      `;
-      userPostsGrid.appendChild(postElement);
-    });
-  } catch (error) {
-    console.error('Error loading user posts:', error);
-  }
-}
     // Withdraw Modal Functions
     function openWithdrawModal() {
       document.getElementById('withdrawModal').style.display = 'flex';
       switchWithdrawTab('request');
       loadWithdrawalHistory();
+      closeSidebarOnMobile();
     }
 
     function closeWithdrawModal() {
@@ -2996,7 +2901,6 @@ auth.onAuthStateChanged(async (user) => {
     }
 
     // Request Withdrawal
-    // Update requestWithdrawal function
     async function requestWithdrawal() {
       const amount = parseFloat(document.getElementById('withdrawAmount').value);
       const method = document.getElementById('paymentMethod').value;
@@ -3022,29 +2926,25 @@ auth.onAuthStateChanged(async (user) => {
           return;
         }
 
-        // ✅ Create withdrawal request
         await db.collection('withdrawals').add({
           userId: currentUser.uid,
           channelName: userData.channelName,
           amount: amount,
           method: method,
           accountNumber: account,
-          pkrAmount: (amount / 500).toFixed(2), // 50,000 coins = 100 PKR
+          pkrAmount: (amount / 500).toFixed(2),
           status: 'pending',
           requestedAt: firebase.firestore.FieldValue.serverTimestamp()
         });
 
-        // ✅ Deduct from balance
         await db.collection('users').doc(currentUser.uid).update({
           balance: firebase.firestore.FieldValue.increment(-amount),
           updatedAt: firebase.firestore.FieldValue.serverTimestamp()
         });
 
-        // Clear form
         document.getElementById('withdrawAmount').value = '';
         document.getElementById('accountNumber').value = '';
 
-        // Update UI
         loadUserData();
         await loadWithdrawalHistory();
 
@@ -3054,6 +2954,7 @@ auth.onAuthStateChanged(async (user) => {
         showNotification('Error: ' + error.message, 'error');
       }
     }
+
     // Load Withdrawal History
     async function loadWithdrawalHistory() {
       try {
@@ -3076,26 +2977,26 @@ auth.onAuthStateChanged(async (user) => {
           const statusClass = `status-${withdrawal.status}`;
 
           historyDiv.innerHTML += `
-                        <div class="history-item">
-                            <div>
-                                <div style="font-weight: bold;">${withdrawal.amount.toFixed(0)} coins</div>
-                                <div style="font-size: 12px; color: var(--gray);">
-                                    PKR: ${withdrawal.pkrAmount || (withdrawal.amount / 500).toFixed(2)}
-                                </div>
-                                <div style="font-size: 12px; color: var(--gray);">
-                                    ${formatTime(withdrawal.requestedAt?.toDate())}
-                                </div>
-                                <div style="font-size: 12px; color: var(--gray);">
-                                    ${withdrawal.method} • ${withdrawal.accountNumber}
-                                </div>
-                            </div>
-                            <div>
-                                <span class="${statusClass}" style="font-size: 10px; padding: 5px 10px;">
-                                    ${withdrawal.status}
-                                </span>
-                            </div>
-                        </div>
-                    `;
+            <div class="history-item">
+              <div>
+                <div style="font-weight: bold;">${withdrawal.amount.toFixed(0)} coins</div>
+                <div style="font-size: 12px; color: var(--gray);">
+                  PKR: ${withdrawal.pkrAmount || (withdrawal.amount / 500).toFixed(2)}
+                </div>
+                <div style="font-size: 12px; color: var(--gray);">
+                  ${formatTime(withdrawal.requestedAt?.toDate())}
+                </div>
+                <div style="font-size: 12px; color: var(--gray);">
+                  ${withdrawal.method} • ${withdrawal.accountNumber}
+                </div>
+              </div>
+              <div>
+                <span class="${statusClass}" style="font-size: 10px; padding: 5px 10px;">
+                  ${withdrawal.status}
+                </span>
+              </div>
+            </div>
+          `;
         });
       } catch (error) {
         console.error('Error loading withdrawal history:', error);
@@ -3106,6 +3007,7 @@ auth.onAuthStateChanged(async (user) => {
     function openReferralModal() {
       document.getElementById('referralModal').style.display = 'flex';
       loadReferralStats();
+      closeSidebarOnMobile();
     }
 
     function closeReferralModal() {
@@ -3140,7 +3042,6 @@ auth.onAuthStateChanged(async (user) => {
     function openProfileEdit() {
       document.getElementById('profileModal').style.display = 'flex';
 
-      // Setup avatar upload
       document.getElementById('avatarUpload').addEventListener('change', function (e) {
         const file = e.target.files[0];
         if (file) {
@@ -3171,14 +3072,12 @@ auth.onAuthStateChanged(async (user) => {
       try {
         let profileImageUrl = null;
 
-        // Upload profile image if changed
         if (profileImageFile) {
           const storageRef = storage.ref(`profiles/${currentUser.uid}/${Date.now()}_${profileImageFile.name}`);
           await storageRef.put(profileImageFile);
           profileImageUrl = await storageRef.getDownloadURL();
         }
 
-        // Update user document
         const updateData = {
           channelName: channelName,
           bio: bio,
@@ -3191,7 +3090,6 @@ auth.onAuthStateChanged(async (user) => {
 
         await db.collection('users').doc(currentUser.uid).update(updateData);
 
-        // Update all posts by this user with new channel info
         const postsSnapshot = await db.collection('posts')
           .where('userId', '==', currentUser.uid)
           .get();
@@ -3207,7 +3105,6 @@ auth.onAuthStateChanged(async (user) => {
 
         await batch.commit();
 
-        // Reload user data
         await loadUserData();
         loadPosts();
 
@@ -3218,251 +3115,138 @@ auth.onAuthStateChanged(async (user) => {
       }
     }
 
-    // Chat System - Auto Reset every 24h
-function setupChatListener() {
-  if (chatListener) chatListener();
+    // Chat System
+    function setupChatListener() {
+      if (chatListener) chatListener();
 
-  // Check if chat needs reset
-  checkAndResetChat();
+      checkAndResetChat();
 
-  chatListener = db.collection('group_chat')
-    .orderBy('timestamp', 'asc')
-    .onSnapshot((snapshot) => {
-      loadMessages();
-    });
-}
-
-// Check and reset chat every 24 hours
-async function checkAndResetChat() {
-  try {
-    const resetDoc = await db.collection('chat_settings').doc('last_reset').get();
-    
-    const now = new Date();
-    
-    if (!resetDoc.exists) {
-      // First time - create document
-      await db.collection('chat_settings').doc('last_reset').set({
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      });
-      return;
-    }
-    
-    let lastResetTime = resetDoc.data().timestamp.toDate();
-    
-    // If more than 24 hours passed
-    if ((now - lastResetTime) > (24 * 60 * 60 * 1000)) {
-      await resetChatHistory();
-      
-      // Update last reset time
-      await db.collection('chat_settings').doc('last_reset').set({
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      });
-      
-      console.log('Chat reset for new day');
-    }
-  } catch (error) {
-    console.error('Error checking chat reset:', error);
-  }
-}
-
-// Reset all chat messages
-async function resetChatHistory() {
-  try {
-    const chatSnapshot = await db.collection('group_chat').get();
-    
-    const batch = db.batch();
-    chatSnapshot.forEach(doc => {
-      batch.delete(doc.ref);
-    });
-    
-    await batch.commit();
-    
-    // Add system message
-    await db.collection('group_chat').add({
-      text: "💬 Chat has been reset for new day. Start fresh conversation!",
-      userId: 'system',
-      channelName: 'System',
-      timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    });
-  } catch (error) {
-    console.error('Error resetting chat:', error);
-  }
-}
-
-async function loadMessages() {
-  try {
-    const querySnapshot = await db.collection('group_chat')
-      .orderBy('timestamp', 'desc')
-      .limit(50)
-      .get();
-
-    const chatMessages = document.getElementById('chatMessages');
-    chatMessages.innerHTML = '';
-
-    if (querySnapshot.empty) {
-      chatMessages.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 20px;">No messages yet. Start the conversation!</p>';
-      return;
+      chatListener = db.collection('group_chat')
+        .orderBy('timestamp', 'asc')
+        .onSnapshot((snapshot) => {
+          loadMessages();
+        });
     }
 
-    const messages = [];
-    querySnapshot.forEach(doc => {
-      messages.unshift(doc.data());
-    });
-
-    messages.forEach(message => {
-      const isCurrentUser = message.userId === currentUser.uid;
-
-      chatMessages.innerHTML += `
-        <div class="chat-message ${isCurrentUser ? 'sent' : ''}">
-          <div style="font-size: 12px; color: var(--gray); margin-bottom: 2px;">
-            ${isCurrentUser ? 'You' : message.channelName}
-          </div>
-          <div class="message-content">
-            ${message.text}
-          </div>
-          <div style="font-size: 10px; color: var(--gray); margin-top: 2px; text-align: ${isCurrentUser ? 'right' : 'left'};">
-            ${formatTime(message.timestamp?.toDate())}
-          </div>
-        </div>
-      `;
-    });
-
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  } catch (error) {
-    console.error('Error loading messages:', error);
-  }
-}
-
-async function sendMessage() {
-  const input = document.getElementById('messageInput');
-  const text = input.value.trim();
-
-  if (!text) return;
-
-  try {
-    const userDoc = await db.collection('users').doc(currentUser.uid).get();
-    const userData = userDoc.data();
-
-    await db.collection('group_chat').add({
-      text: text,
-      userId: currentUser.uid,
-      channelName: userData.channelName,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    });
-
-    input.value = '';
-  } catch (error) {
-    showNotification('Error: ' + error.message, 'error');
-  }
-}
-    // Toggle post text (Show more/Less)
-    function togglePostText(postId, fullText) {
-      const textElement = document.getElementById(`postText${postId}`);
-      const buttonElement = textElement.nextElementSibling;
-
-      if (textElement.classList.contains('expanded')) {
-        // Collapse text
-        const shortText = fullText.length > 150 ?
-          fullText.substring(0, 150) + '...' : fullText;
-        textElement.innerHTML = shortText;
-        textElement.classList.remove('expanded');
-        if (buttonElement) buttonElement.textContent = 'Show more';
-      } else {
-        // Expand text
-        textElement.innerHTML = fullText;
-        textElement.classList.add('expanded');
-        if (buttonElement) buttonElement.textContent = 'Show less';
+    async function checkAndResetChat() {
+      try {
+        const resetDoc = await db.collection('chat_settings').doc('last_reset').get();
+        
+        const now = new Date();
+        
+        if (!resetDoc.exists) {
+          await db.collection('chat_settings').doc('last_reset').set({
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+          });
+          return;
+        }
+        
+        let lastResetTime = resetDoc.data().timestamp.toDate();
+        
+        if ((now - lastResetTime) > (24 * 60 * 60 * 1000)) {
+          await resetChatHistory();
+          
+          await db.collection('chat_settings').doc('last_reset').set({
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+          });
+          
+          console.log('Chat reset for new day');
+        }
+      } catch (error) {
+        console.error('Error checking chat reset:', error);
       }
     }
-    // Toggle Sidebar
-    function toggleSidebar() {
-      const sidebar = document.getElementById('sidebar');
-      sidebar.style.display = sidebar.style.display === 'none' ? 'block' : 'none';
+
+    async function resetChatHistory() {
+      try {
+        const chatSnapshot = await db.collection('group_chat').get();
+        
+        const batch = db.batch();
+        chatSnapshot.forEach(doc => {
+          batch.delete(doc.ref);
+        });
+        
+        await batch.commit();
+        
+        await db.collection('group_chat').add({
+          text: "💬 Chat has been reset for new day. Start fresh conversation!",
+          userId: 'system',
+          channelName: 'System',
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        });
+      } catch (error) {
+        console.error('Error resetting chat:', error);
+      }
     }
-    
-    // Load Referral Stats - FIXED VERSION
-    async function loadReferralStats() {
+
+    async function loadMessages() {
+      try {
+        const querySnapshot = await db.collection('group_chat')
+          .orderBy('timestamp', 'desc')
+          .limit(50)
+          .get();
+
+        const chatMessages = document.getElementById('chatMessages');
+        chatMessages.innerHTML = '';
+
+        if (querySnapshot.empty) {
+          chatMessages.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 20px;">No messages yet. Start the conversation!</p>';
+          return;
+        }
+
+        const messages = [];
+        querySnapshot.forEach(doc => {
+          messages.unshift(doc.data());
+        });
+
+        messages.forEach(message => {
+          const isCurrentUser = message.userId === currentUser.uid;
+
+          chatMessages.innerHTML += `
+            <div class="chat-message ${isCurrentUser ? 'sent' : ''}">
+              <div style="font-size: 12px; color: var(--gray); margin-bottom: 2px;">
+                ${isCurrentUser ? 'You' : message.channelName}
+              </div>
+              <div class="message-content">
+                ${message.text}
+              </div>
+              <div style="font-size: 10px; color: var(--gray); margin-top: 2px; text-align: ${isCurrentUser ? 'right' : 'left'};">
+                ${formatTime(message.timestamp?.toDate())}
+              </div>
+            </div>
+          `;
+        });
+
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      } catch (error) {
+        console.error('Error loading messages:', error);
+      }
+    }
+
+    async function sendMessage() {
+      const input = document.getElementById('messageInput');
+      const text = input.value.trim();
+
+      if (!text) return;
+
       try {
         const userDoc = await db.collection('users').doc(currentUser.uid).get();
         const userData = userDoc.data();
 
-        // Display referral code
-        document.getElementById('referralCodeDisplay').value = userData.referralCode || '';
+        await db.collection('group_chat').add({
+          text: text,
+          userId: currentUser.uid,
+          channelName: userData.channelName,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        });
 
-        // Set referral link
-        const referralLink = `https://alidevtech-code.github.io/EarnTube/?ref=${userData.referralCode}`;
-        document.getElementById('referralLink').value = referralLink;
-
-        // Count successful referrals
-        const referralsSnapshot = await db.collection('referrals')
-          .where('referrerId', '==', currentUser.uid)
-          .where('status', '==', 'approved')
-          .get();
-
-        const totalEarningsPKR = referralsSnapshot.size * 5;
-
-        // Count pending referrals
-        const pendingSnapshot = await db.collection('referrals')
-          .where('referrerId', '==', currentUser.uid)
-          .where('status', '==', 'pending')
-          .get();
-
-        // Total coins earned from referrals (5 PKR = 2.5 coins)
-        const totalCoinsFromReferrals = referralsSnapshot.size * 2.5;
-
-        // Update UI - SAFELY
-        document.getElementById('referralCount').textContent = referralsSnapshot.size;
-        document.getElementById('referralEarnings').textContent = totalEarningsPKR + ' PKR';
-        document.getElementById('pendingReferrals').textContent = pendingSnapshot.size;
-
-        // Only update if element exists
-        const referralCoinsElement = document.getElementById('referralCoins');
-        if (referralCoinsElement) {
-          referralCoinsElement.textContent = totalCoinsFromReferrals.toFixed(4) + ' coins';
-        }
-
-        // Load referrals list
-        await loadReferralsList();
-
+        input.value = '';
       } catch (error) {
-        console.error('Error loading referral stats:', error);
+        showNotification('Error: ' + error.message, 'error');
       }
     }
 
-    // Admin approve function - FIXED VERSION
-    // Admin approve function - CORRECTED VERSION
-    async function approveReferral(referralId, referrerId) {
-      try {
-        // 1. Referral ki status update karo "approved"
-        await db.collection('referrals').doc(referralId).update({
-          status: 'approved',
-          approvedAt: firebase.firestore.FieldValue.serverTimestamp()
-        });
-
-        // 2. Referrer ko 5 PKR (2.5 coins) do
-        // 50,000 coins = 100 PKR
-        // 1 PKR = 500 coins
-        // 5 PKR = 2,500 coins = 2.5 coins (decimal mein)
-        const coinsToAdd = 2.5;
-
-        // 3. Referrer ka balance update karo - EK HI BAAR
-        await db.collection('users').doc(referrerId).update({
-          balance: firebase.firestore.FieldValue.increment(coinsToAdd), // ✅ Sirf yahi line
-          referralEarnings: firebase.firestore.FieldValue.increment(5), // PKR count
-          updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-        });
-
-        console.log(`Added ${coinsToAdd} coins to user ${referrerId}`);
-        return true;
-
-      } catch (error) {
-        console.error('Error approving referral:', error);
-        return false;
-      }
-    }
-
-    // Real-time listener for referrals - FIXED VERSION
-    // Real-time listener for referrals - FIXED VERSION
+    // Setup Referral Listener
     function setupReferralListener() {
       return db.collection('referrals')
         .where('referrerId', '==', currentUser.uid)
@@ -3472,43 +3256,15 @@ async function sendMessage() {
               const newData = change.doc.data();
               const oldData = change.doc.previous.data ? change.doc.previous.data() : {};
 
-              // Check if status changed from pending to approved
               if (newData.status === 'approved' && oldData.status === 'pending') {
-                // ✅ Balance real-time update hoga
                 loadUserData();
-
-                // ✅ Real-time notification
                 showNotification(`🎉 Referral approved! You earned 5 PKR (2.5 coins)`, 'success');
-
-                // ✅ Referral stats update
                 loadReferralStats();
               }
             }
           });
         });
     }
-
-    // Update auth state listener
-    auth.onAuthStateChanged(async (user) => {
-      if (user) {
-        currentUser = user;
-        document.getElementById('appContainer').style.display = 'flex';
-        hideAuthModal();
-
-        // Load user data
-        await loadUserData();
-        switchTab('home');
-        setupChatListener();
-
-        // ✅ YEH LINE ADD KARO - Referral listener setup karo
-        setupReferralListener();
-
-      } else {
-        document.getElementById('appContainer').style.display = 'none';
-        document.getElementById('authModal').style.display = 'flex';
-        if (chatListener) chatListener();
-      }
-    });
 
     // Format Time
     function formatTime(date) {
@@ -3536,7 +3292,6 @@ async function sendMessage() {
 
     // Initialize
     document.addEventListener('DOMContentLoaded', function () {
-      // Auto-show auth modal
       setTimeout(() => {
         if (!auth.currentUser) {
           document.getElementById('authModal').style.display = 'flex';
@@ -3547,4 +3302,3 @@ async function sendMessage() {
 </body>
 
 </html>
-
